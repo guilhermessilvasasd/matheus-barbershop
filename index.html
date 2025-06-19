@@ -12,26 +12,25 @@
 
 <body>
 
-  <!-- Barber pole fixado no topo do cabeçalho -->
-  <div class="barber-pole"></div>
+  <!-- Barber pole no cabeçalho -->
+  <header class="container-header">
+    <div class="logo-simulado">
+      LOGOTIPO
+    </div>
+    <nav class="menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Nossos Serviços</a>
+      <a href="#equipe">Nossa Equipe</a>
+      <a href="#galeria">Galeria de Clientes</a>
+      <a href="#contato">Endereço e Contato</a>
+    </nav>
+    <div class="barber-pole"></div>
+  </header>
 
   <div class="page-wrapper">
-    <header class="container-header">
-      <div class="logo-simulado">
-        LOGOTIPO
-      </div>
-      <nav class="menu">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Nossos Serviços</a>
-        <a href="#equipe">Nossa Equipe</a>
-        <a href="#galeria">Galeria de Clientes</a>
-        <a href="#contato">Endereço e Contato</a>
-      </nav>
-    </header>
-
     <main>
 
-      <!-- Seção Sobre -->
+      <!-- Sobre -->
       <section id="sobre" class="section-padrao">
         <h2 class="titulo-secao">Sobre</h2>
         <div class="sobre-content">
@@ -61,7 +60,7 @@
         </div>
       </section>
 
-      <!-- Seção Serviços -->
+      <!-- Serviços -->
       <section id="servicos" class="section-padrao">
         <h2 class="titulo-secao">Nossos Serviços</h2>
         <div class="servicos-grid">
@@ -79,15 +78,10 @@
         </p>
       </section>
 
-      <!-- Seção Equipe -->
+      <!-- Equipe -->
       <section id="equipe" class="section-padrao">
         <h2 class="titulo-secao">Nossa Equipe</h2>
         <div class="equipe-grid">
-          <div class="membro">
-            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Matheus');"></div>
-            <h3>Matheus</h3>
-            <p class="comentario">Fundador e barbeiro especialista em cortes clássicos e modernos.</p>
-          </div>
           <div class="membro">
             <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Lyon');"></div>
             <h3>Lyon</h3>
@@ -103,10 +97,15 @@
             <h3>Kyan</h3>
             <p class="comentario">Especialista em alisamentos e luzes.</p>
           </div>
+          <div class="membro membro-dono">
+            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Matheus');"></div>
+            <h3>Matheus</h3>
+            <p class="comentario">Fundador e barbeiro especialista em cortes clássicos e modernos.</p>
+          </div>
         </div>
       </section>
 
-      <!-- Seção Galeria -->
+      <!-- Galeria de clientes -->
       <section id="galeria" class="section-padrao">
         <h2 class="titulo-secao">Galeria de Clientes</h2>
         <div class="galeria-grid">
@@ -115,15 +114,10 @@
           <div class="galeria-item"></div>
           <div class="galeria-item"></div>
           <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
         </div>
       </section>
 
-      <!-- Seção Contato -->
+      <!-- Contato -->
       <section id="contato" class="section-padrao">
         <h2 class="titulo-secao">Endereço e Contato</h2>
         <p class="endereco-contato">
@@ -141,6 +135,7 @@
           <a href="https://instagram.com/seuinsta" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </section>
+
     </main>
 
     <footer>

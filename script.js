@@ -1,22 +1,64 @@
-// Quando a página carregar, mensagem no console
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
   console.log("Site da Matheu's Barbershop carregado.");
-  
-  // Lógica para somar serviços
-  const botoes = document.querySelectorAll('.servico-item button');
-  const totalEl = document.getElementById('total');
-  let total = 0;
 
-  botoes.forEach(botao => {
-    botao.addEventListener('click', function () {
-      let valorTexto = this.textContent.match(/R\$ ?(\d+)(?: a R\$ ?(\d+))?/);
-      if (valorTexto) {
-        let valor = parseInt(valorTexto[1]);
-        total += valor;
-        totalEl.textContent = total.toFixed(2).replace('.', ',');
-        this.style.background = '#ffd700';
-        this.style.color = '#000';
+  // Crescer título ao entrar em viewport
+  const titulos = document.querySelectorAll(".titulo-secao");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("crescendo");
+        } else {
+          entry.target.classList.remove("crescendo");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  titulos.forEach((titulo) => observer.observe(titulo));
+
+  // Serviços - seleção, soma e destaque
+  const botoesServicos = document.querySelectorAll(".servico-item button");
+  const totalSpan = document.getElementById("total");
+
+  // Mapeia serviços para valores numéricos
+  const precos = {
+    "Corte - R$ 40": 40,
+    "Cabelo e Barba - R$ 65": 65,
+    "Barba - R$ 25": 25,
+    "Sobrancelha - R$ 10": 10,
+    "Alisamento - R$ 25": 25,
+    "Cabelo Afro - R$ 30": 30,
+    "Luzes - R$ 45 a R$ 60": 45, // Considera o menor valor para soma
+    "Pezinho - R$ 10": 10,
+  };
+
+  let servicosSelecionados = new Set();
+
+  botoesServicos.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const texto = botao.textContent.trim();
+      if (servicosSelecionados.has(texto)) {
+        servicosSelecionados.delete(texto);
+        botao.classList.remove("selecionado");
+      } else {
+        servicosSelecionados.add(texto);
+        botao.classList.add("selecionado");
       }
+      atualizarTotal();
     });
   });
+
+  function atualizarTotal() {
+    let soma = 0;
+    servicosSelecionados.forEach((servico) => {
+      soma += precos[servico] || 0;
+    });
+    totalSpan.textContent = soma.toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
 });

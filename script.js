@@ -17,15 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkSections);
   checkSections();
 
-  // Barber pole girando ao clicar
-  const barberPole = document.getElementById('barber-pole');
-  barberPole.addEventListener('click', () => {
-    if (barberPole.classList.contains('rotating')) {
-      barberPole.classList.remove('rotating');
-    } else {
-      barberPole.classList.add('rotating');
-    }
-  });
+  // Barber pole girando automaticamente (já no CSS)
 
   // Brincadeira: clicar em qualquer canto mostra convite
   function conviteBrincadeira() {
@@ -35,16 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
   ['top-left', 'top-right', 'bottom-left', 'bottom-right'].forEach(corner => {
     const div = document.createElement('div');
     div.classList.add('click-corner', corner);
-    div.style.position = 'fixed';
-    div.style.width = '50px';
-    div.style.height = '50px';
-    div.style.zIndex = '9999';
     if(corner.includes('top')) div.style.top = '0';
     else div.style.bottom = '0';
     if(corner.includes('left')) div.style.left = '0';
     else div.style.right = '0';
-    div.style.cursor = 'pointer';
-    div.style.background = 'transparent';
     div.addEventListener('click', conviteBrincadeira);
     document.body.appendChild(div);
   });

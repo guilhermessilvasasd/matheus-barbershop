@@ -16,19 +16,19 @@
   --cinza-escuro: #222222;
 }
 
-/* Body com margens pretas e fundo branco */
+/* Body e Wrapper para centrar conteúdo e margens laterais */
 body {
   background-color: var(--preto);
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
-  padding: 0;
-  color: var(--cinza-escuro);
+  overflow-x: hidden; /* impede scroll horizontal */
 }
 
-/* Limita a largura do conteúdo para evitar rolagem horizontal */
-body > * {
-  max-width: 1000px; /* diminui o max-width para evitar scroll horizontal */
+.page-wrapper {
+  max-width: 1000px;
   width: 100%;
   background-color: var(--branco);
   margin: 30px 40px;
@@ -48,7 +48,7 @@ body > * {
   top: 0;
   z-index: 1000;
   background-color: var(--preto);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   padding: 20px 30px;
@@ -95,6 +95,7 @@ body > * {
   box-shadow: 0 0 15px var(--dourado);
   transition: background-color 0.3s ease, transform 0.25s ease;
   user-select: none;
+  white-space: nowrap;
 }
 
 .menu a:hover,
@@ -105,21 +106,21 @@ body > * {
   outline: none;
 }
 
-/* Barber Pole no topo do cabeçalho */
+/* Barber Pole no topo direito */
 .barber-pole {
   position: fixed;
-  top: 15px;
+  top: 25px;
   right: 40px;
-  width: 50px;
-  height: 160px;
+  width: 30px;
+  height: 130px;
   border-radius: 25px;
   background: repeating-linear-gradient(
     45deg,
-    red 0 12px,
-    white 12px 24px,
-    blue 24px 36px
+    red 0 10px,
+    white 10px 20px,
+    blue 20px 30px
   );
-  box-shadow: 0 0 12px var(--dourado);
+  box-shadow: 0 0 8px var(--dourado);
   animation: spiral-background 5s linear infinite;
   z-index: 1100;
 }
@@ -130,7 +131,7 @@ body > * {
     background-position: 0 0;
   }
   100% {
-    background-position: 108px 108px;
+    background-position: 90px 90px;
   }
 }
 
@@ -324,18 +325,17 @@ body > * {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-bottom: 15px;
+  max-width: 1050px;
+  margin-top: 10px;
   user-select: none;
 }
 
 .galeria-item {
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   background-color: var(--preto);
-  border: 5px solid var(--dourado);
+  border: 6px solid var(--dourado);
   border-radius: 20px;
-  box-shadow: 0 0 20px var(--dourado);
+  box-shadow: 0 0 25px var(--dourado);
 }
 
 /* ========== Contato ========== */
@@ -345,6 +345,7 @@ body > * {
   font-size: 1.3rem;
   color: var(--cinza-escuro);
   user-select: none;
+  margin: 0 auto;
 }
 
 #contato .endereco-contato {
@@ -355,6 +356,7 @@ body > * {
 #contato .endereco-contato a {
   color: var(--dourado);
   font-weight: 900;
+  font-size: 1.3rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -378,7 +380,7 @@ body > * {
 }
 
 .social-icons a {
-  font-size: 4.5rem;
+  font-size: 5.5rem;
   color: var(--dourado);
   transition: color 0.3s ease;
   user-select: none;
@@ -403,27 +405,27 @@ footer {
 
 /* ========== Responsividade ========== */
 @media (max-width: 1100px) {
-  body > * {
-    margin: 30px 15px;
-    padding: 30px 20px 45px 20px;
+  .page-wrapper {
+    margin: 30px 20px;
   }
 
   .sobre-content {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
   .foto-dono-quadro {
-    margin-top: 35px;
+    margin-top: 25px;
   }
 
   .servicos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
   }
 
   .equipe-grid {
-    gap: 30px;
+    gap: 35px;
     flex-wrap: wrap;
   }
 
@@ -435,14 +437,14 @@ footer {
 }
 
 @media (max-width: 650px) {
-  body > * {
+  .page-wrapper {
     margin: 15px 10px;
-    padding: 20px 15px 35px 15px;
+    padding: 20px 15px 40px 15px;
   }
 
   .container-header {
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
     padding: 20px 20px;
   }
 
@@ -453,14 +455,14 @@ footer {
   }
 
   .menu {
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .menu a {
-    font-size: 1.3rem;
-    padding: 15px 25px;
+    font-size: 1.5rem;
+    padding: 15px 30px;
   }
 
   .servicos-grid {
@@ -468,8 +470,8 @@ footer {
   }
 
   .servico-item button {
-    font-size: 1.3rem;
-    padding: 15px 0;
+    font-size: 1.5rem;
+    padding: 18px 0;
   }
 
   .membro {
@@ -481,7 +483,7 @@ footer {
   }
 
   .social-icons a {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 

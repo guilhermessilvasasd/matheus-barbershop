@@ -1,42 +1,38 @@
-const servicosBtns = document.querySelectorAll('.servico-item');
-const listaServicosEl = document.getElementById('lista-servicos');
-const totalEl = document.getElementById('total');
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Site da Matheu's Barbershop carregado.");
 
-let servicosSelecionados = [];
+  const servicos = document.querySelectorAll('.servico-item');
+  const listaServicos = document.getElementById('lista-servicos');
+  const totalSpan = document.getElementById('total');
 
-function atualizarListaETotal() {
-  listaServicosEl.innerHTML = '';
-  let total = 0;
+  let servicosSelecionados = [];
 
-  servicosSelecionados.forEach(s => {
-    const li = document.createElement('li');
-    li.textContent = s.nome + ' - R$ ' + s.preco.toFixed(2).replace('.', ',');
-    listaServicosEl.appendChild(li);
-    total += s.preco;
+  servicos.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const nomeServico = botao.textContent.trim().replace(/R\$\s*\d+.*$/, '');
+      const preco = parseFloat(botao.getAttribute('data-preco'));
+
+      // Toggle seleção
+      if (botao.classList.contains('selected')) {
+        botao.classList.remove('selected');
+        servicosSelecionados = servicosSelecionados.filter(s => s.nome !== nomeServico);
+      } else {
+        botao.classList.add('selected');
+        servicosSelecionados.push({ nome: nomeServico, preco: preco });
+      }
+      atualizarLista();
+    });
   });
 
-  totalEl.textContent = total.toFixed(2).replace('.', ',');
-}
-
-servicosBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const nome = btn.textContent.trim().split('\n')[0];
-    // Remover preço do nome
-    const nomeLimpo = nome.replace(/R\$.*$/, '').trim();
-
-    const precoRaw = btn.getAttribute('data-preco');
-    const preco = parseFloat(precoRaw) || 0;
-
-    // Se já estiver selecionado, remove
-    const index = servicosSelecionados.findIndex(s => s.nome === nomeLimpo);
-    if (index >= 0) {
-      servicosSelecionados.splice(index, 1);
-      btn.classList.remove('selected');
-    } else {
-      servicosSelecionados.push({ nome: nomeLimpo, preco });
-      btn.classList.add('selected');
-    }
-
-    atualizarListaETotal();
-  });
+  function atualizarLista() {
+    listaServicos.innerHTML = '';
+    let total = 0;
+    servicosSelecionados.forEach(s => {
+      const li = document.createElement('li');
+      li.textContent = s.nome + ' - R$ ' + s.preco.toFixed(2).replace('.', ',');
+      listaServicos.appendChild(li);
+      total += s.preco;
+    });
+    totalSpan.textContent = total.toFixed(2).replace('.', ',');
+  }
 });

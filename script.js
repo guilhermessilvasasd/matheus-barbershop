@@ -1,20 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const botoes = document.querySelectorAll('.servico-btn');
-  const totalSpan = document.getElementById('total-valor');
+// Quando a página carregar, mensagem no console
+document.addEventListener('DOMContentLoaded', function () {
+  console.log("Site da Matheu's Barbershop carregado.");
+  
+  // Lógica para somar serviços
+  const botoes = document.querySelectorAll('.servico-item button');
+  const totalEl = document.getElementById('total');
   let total = 0;
 
-  botoes.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const valor = Number(btn.getAttribute('data-valor'));
-      if (!btn.classList.contains('selected')) {
-        btn.classList.add('selected');
+  botoes.forEach(botao => {
+    botao.addEventListener('click', function () {
+      let valorTexto = this.textContent.match(/R\$ ?(\d+)(?: a R\$ ?(\d+))?/);
+      if (valorTexto) {
+        let valor = parseInt(valorTexto[1]);
         total += valor;
-      } else {
-        btn.classList.remove('selected');
-        total -= valor;
+        totalEl.textContent = total.toFixed(2).replace('.', ',');
+        this.style.background = '#ffd700';
+        this.style.color = '#000';
       }
-      totalSpan.textContent = total;
     });
   });
 });
-

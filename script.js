@@ -1,40 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const botoesServicos = document.querySelectorAll('.servico-item button');
+// ========== script.js ==========
+
+document.addEventListener('DOMContentLoaded', function () {
+  const botoesServico = document.querySelectorAll('#servicos button');
   const totalSpan = document.getElementById('total');
+  let total = 0;
+  const selecionados = new Set();
 
-  let totalSelecionado = 0;
-  const precos = {
-    'Corte - R$ 40': 40,
-    'Cabelo e Barba - R$ 65': 65,
-    'Barba - R$ 25': 25,
-    'Sobrancelha - R$ 10': 10,
-    'Alisamento - R$ 25': 25,
-    'Cabelo Afro - R$ 30': 30,
-    'Luzes - R$ 45 a R$ 60': 45,
-    'Pezinho - R$ 10': 10
-  };
+  botoesServico.forEach(btn => {
+    btn.addEventListener('click', () => {
+      let texto = btn.textContent;
+      let valor = texto.match(/(\d+(,\d+)?)/g);
 
-  let servicosSelecionados = new Set();
+      if (!valor) return;
 
-  botoesServicos.forEach(botao => {
-    botao.addEventListener('click', () => {
-      const texto = botao.textContent.trim();
+      let valorNumerico = parseFloat(valor[0].replace(',', '.'));
 
-      if (servicosSelecionados.has(texto)) {
-        servicosSelecionados.delete(texto);
-        botao.classList.remove('selecionado');
+      if (selecionados.has(btn)) {
+        total -= valorNumerico;
+        selecionados.delete(btn);
+        btn.style.backgroundColor = '';
+        btn.style.color = '';
       } else {
-        servicosSelecionados.add(texto);
-        botao.classList.add('selecionado');
+        total += valorNumerico;
+        selecionados.add(btn);
+        btn.style.backgroundColor = '#d4af37';
+        btn.style.color = '#000';
       }
 
-      totalSelecionado = 0;
-      servicosSelecionados.forEach(item => {
-        totalSelecionado += precos[item] || 0;
+      totalSpan.textContent = total.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
       });
-
-      totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
 });
-

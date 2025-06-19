@@ -1,47 +1,42 @@
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("Site da Matheu's Barbershop carregado.");
+const servicosBtns = document.querySelectorAll('.servico-item');
+const listaServicosEl = document.getElementById('lista-servicos');
+const totalEl = document.getElementById('total');
 
-  const servicos = document.querySelectorAll('.servico-item');
-  const listaServicos = document.getElementById('lista-servicos');
-  const totalElement = document.getElementById('total');
+let servicosSelecionados = [];
 
-  let servicosSelecionados = [];
+function atualizarListaETotal() {
+  listaServicosEl.innerHTML = '';
+  let total = 0;
 
-  function atualizarTotal() {
-    let total = servicosSelecionados.reduce((acc, serv) => acc + serv.preco, 0);
-    totalElement.textContent = total.toFixed(2).replace('.', ',');
-    // Atualizar lista visível
-    listaServicos.innerHTML = '';
-    servicosSelecionados.forEach(serv => {
-      let li = document.createElement('li');
-      li.textContent = serv.nome + ' - R$ ' + serv.preco.toFixed(2).replace('.', ',');
-      listaServicos.appendChild(li);
-    });
-    if(servicosSelecionados.length === 0){
-      listaServicos.innerHTML = '<li>Nenhum serviço selecionado.</li>';
-    }
-  }
-
-  servicos.forEach(button => {
-    button.addEventListener('click', () => {
-      const nome = button.textContent.replace(/\s*R\$.*/, '').trim();
-      let preco = button.getAttribute('data-preco');
-      preco = preco.includes('-') ? parseFloat(preco.split('-')[0]) : parseFloat(preco);
-      const index = servicosSelecionados.findIndex(s => s.nome === nome);
-
-      if(index > -1){
-        // Remove da seleção
-        servicosSelecionados.splice(index, 1);
-        button.classList.remove('selected');
-      } else {
-        // Adiciona na seleção
-        servicosSelecionados.push({nome, preco});
-        button.classList.add('selected');
-      }
-      atualizarTotal();
-    });
+  servicosSelecionados.forEach(s => {
+    const li = document.createElement('li');
+    li.textContent = s.nome + ' - R$ ' + s.preco.toFixed(2).replace('.', ',');
+    listaServicosEl.appendChild(li);
+    total += s.preco;
   });
 
-  // Inicializa lista e total
-  atualizarTotal();
+  totalEl.textContent = total.toFixed(2).replace('.', ',');
+}
+
+servicosBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const nome = btn.textContent.trim().split('\n')[0];
+    // Remover preço do nome
+    const nomeLimpo = nome.replace(/R\$.*$/, '').trim();
+
+    const precoRaw = btn.getAttribute('data-preco');
+    const preco = parseFloat(precoRaw) || 0;
+
+    // Se já estiver selecionado, remove
+    const index = servicosSelecionados.findIndex(s => s.nome === nomeLimpo);
+    if (index >= 0) {
+      servicosSelecionados.splice(index, 1);
+      btn.classList.remove('selected');
+    } else {
+      servicosSelecionados.push({ nome: nomeLimpo, preco });
+      btn.classList.add('selected');
+    }
+
+    atualizarListaETotal();
+  });
 });

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Site da Matheu's Barbershop carregado.");
+  console.log("Matheu's Barbershop carregado.");
 
-  // Crescer título ao entrar em viewport
+  // Títulos crescem ao entrar em viewport
   const titulos = document.querySelectorAll(".titulo-secao");
 
   const observer = new IntersectionObserver(
@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   titulos.forEach((titulo) => observer.observe(titulo));
 
-  // Serviços - seleção, soma e destaque
+  // Serviços: seleção, destaque e soma
   const botoesServicos = document.querySelectorAll(".servico-item button");
   const totalSpan = document.getElementById("total");
 
-  // Mapeia serviços para valores numéricos
+  // Valores dos serviços para soma
   const precos = {
     "Corte - R$ 40": 40,
     "Cabelo e Barba - R$ 65": 65,
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Sobrancelha - R$ 10": 10,
     "Alisamento - R$ 25": 25,
     "Cabelo Afro - R$ 30": 30,
-    "Luzes - R$ 45 a R$ 60": 45, // Considera o menor valor para soma
+    "Luzes - R$ 45 a R$ 60": 45, // menor valor para soma
     "Pezinho - R$ 10": 10,
   };
 
@@ -62,3 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

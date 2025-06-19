@@ -319,38 +319,23 @@ body > * {
 }
 
 /* ========== Galeria ========== */
+/* Grid fixa para evitar rolagem horizontal */
 .galeria-grid {
-  display: flex;
-  overflow-x: auto;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
   max-width: 1100px;
+  margin: 0 auto;
   padding-bottom: 15px;
-  scroll-behavior: smooth;
   user-select: none;
 }
 
 .galeria-item {
-  flex: 0 0 260px;
-  height: 260px;
+  aspect-ratio: 1/1;
   background-color: var(--preto);
   border: 5px solid var(--dourado);
   border-radius: 20px;
   box-shadow: 0 0 20px var(--dourado);
-}
-
-/* Scrollbar estilizado da galeria */
-.galeria-grid::-webkit-scrollbar {
-  height: 12px;
-}
-
-.galeria-grid::-webkit-scrollbar-track {
-  background: var(--cinza-claro);
-  border-radius: 12px;
-}
-
-.galeria-grid::-webkit-scrollbar-thumb {
-  background: var(--dourado);
-  border-radius: 12px;
 }
 
 /* ========== Contato ========== */
@@ -359,6 +344,7 @@ body > * {
   text-align: center;
   font-size: 1.3rem;
   color: var(--cinza-escuro);
+  user-select: none;
 }
 
 #contato .endereco-contato {
@@ -379,14 +365,20 @@ body > * {
   text-decoration: underline;
 }
 
+#contato .galeria-veneza a {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 .social-icons {
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-top: 15px;
 }
 
 .social-icons a {
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: var(--dourado);
   transition: color 0.3s ease;
   user-select: none;
@@ -427,9 +419,11 @@ footer {
 
   .equipe-grid {
     gap: 30px;
+    flex-wrap: wrap;
   }
 
   .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
     gap: 20px;
   }
@@ -450,6 +444,7 @@ footer {
   .logo-simulado {
     width: 100px;
     height: 100px;
+    font-size: 1rem;
   }
 
   .menu {
@@ -459,17 +454,17 @@ footer {
   }
 
   .menu a {
-    font-size: 1.1rem;
-    padding: 12px 20px;
+    font-size: 1.3rem;
+    padding: 15px 25px;
   }
 
   .servicos-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .servico-item button {
-    font-size: 1.2rem;
-    padding: 18px 0;
+    font-size: 1.3rem;
+    padding: 15px 0;
   }
 
   .membro {
@@ -477,24 +472,18 @@ footer {
   }
 
   .galeria-item {
-    flex: 0 0 180px;
-    height: 180px;
+    aspect-ratio: 1/1;
+    height: auto;
   }
 
   .social-icons a {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
 /* Botões com foco acessível */
 button:focus-visible,
 .menu a:focus-visible {
-  outline: 3px solid var(--amarelo-titulo);
-  outline-offset: 3px;
-}
-
-/* Botões acessíveis */
-button:focus-visible {
   outline: 3px solid var(--amarelo-titulo);
   outline-offset: 3px;
 }

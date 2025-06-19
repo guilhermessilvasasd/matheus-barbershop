@@ -54,5 +54,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   titulos.forEach(titulo => observer.observe(titulo));
 });
-
-

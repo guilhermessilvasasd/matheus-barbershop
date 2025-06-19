@@ -90,6 +90,12 @@ body {
   height: 60px;
   background: repeating-linear-gradient(45deg, red 0 6px, white 6px 12px, blue 12px 18px);
   border-radius: 12px;
+  animation: rotatePole 1s linear infinite;
+}
+
+@keyframes rotatePole {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .section-padrao {
@@ -132,6 +138,117 @@ body {
   background-color: var(--cinza-claro);
   background-size: cover;
   background-position: center;
+  margin: 20px auto;
+}
+
+/* Serviços */
+.servicos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.servico-item button {
+  background-color: var(--preto);
+  color: var(--branco);
+  border: 1px solid var(--dourado);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.servico-item button:hover {
+  background-color: var(--dourado);
+  color: var(--preto);
+}
+
+.soma-servicos {
+  margin-top: 25px;
+  font-weight: 700;
+  color: var(--preto);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Equipe */
+.equipe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.membro {
+  text-align: center;
+  max-width: 180px;
+}
+
+.membro-foto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--dourado);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
+
+.comentario {
+  font-size: 0.9rem;
+  color: var(--preto);
+}
+
+/* Galeria */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.galeria-item {
+  width: 100%;
+  height: 140px;
+  background-color: var(--cinza-claro);
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+
+/* Contato */
+.endereco-contato {
+  font-size: 1.1rem;
+  color: var(--preto);
+  margin: 10px 0;
+  text-align: center;
+}
+
+.link-maps {
+  color: var(--preto);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--dourado);
+}
+
+.link-maps:hover {
+  color: var(--dourado);
+}
+
+.social-icons {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: var(--preto);
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: var(--dourado);
 }
 
 footer {
@@ -144,6 +261,7 @@ footer {
   margin-top: 30px;
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
   .container-header {
     flex-direction: column;
@@ -162,14 +280,13 @@ footer {
     margin-bottom: 10px;
   }
 
-  .foto-dono-quadro {
+  .foto-dono-quadro,
+  .membro-foto {
     width: 160px;
     height: 160px;
   }
-}
 
-  .foto-dono-quadro {
-    width: 160px;
-    height: 160px;
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }

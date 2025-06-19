@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Fredoka+One&family=Poppins:wght@400;600&display=swap');
 
 :root {
   --cor-primaria: #1a1a1a;
@@ -8,9 +8,10 @@
   --cor-texto-claro: #f0f0f0;
   --cor-fundo-escuro: #1a1a1a;
   --cor-lateral: #000000;
+  --cinza-claro: #d9d9d9;
 }
 
-/* Reset e Padrões */
+/* Reset e base */
 * {
   margin: 0;
   padding: 0;
@@ -23,19 +24,12 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  margin: 0 40px; /* aumentei para margem maior */
+  margin: 0 40px;
   border-left: 60px solid var(--cor-lateral);
   border-right: 60px solid var(--cor-lateral);
-  background-image: repeating-linear-gradient(
-    to bottom,
-    black 0,
-    black 20px,
-    #111 20px,
-    #111 40px
-  );
 }
 
-/* Fade in nas seções */
+/* Fade das seções */
 .fade-section {
   opacity: 0;
   transform: translateY(20px);
@@ -46,55 +40,54 @@ body {
   transform: translateY(0);
 }
 
-/* Header */
+/* Cabeçalho */
 #header {
   background-color: var(--cor-primaria);
-  border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 10px 0;
-  color: var(--cor-texto-claro);
 }
-#header .container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--cinza-claro);
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 #header .logo img {
   height: 50px;
 }
 #header nav a {
-  margin: 0 15px;
-  font-weight: 600;
-  color: var(--cor-texto-claro);
-  transition: color 0.3s;
+  margin: 0 10px;
   font-family: 'Fredoka One', cursive;
   font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  padding: 4px 8px;
+  border-radius: 6px;
 }
 #header nav a:hover {
-  color: var(--cor-destaque);
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
 }
 
-/* Barber Pole */
+/* Barber pole */
 .barber-pole {
-  width: 40px;
+  width: 50px;
   height: 180px;
-  border-radius: 12px;
-  background: repeating-linear-gradient(
-    45deg,
-    #d92f2f,
-    #d92f2f 15px,
-    #005bbb 15px,
-    #005bbb 30px
+  border-radius: 50% / 100%;
+  background: repeating-conic-gradient(
+    from 45deg,
+    #d92f2f 0deg 30deg,
+    #005bbb 30deg 60deg
   );
   border: 3px solid #555;
-  cursor: default;
-  animation: girar 3s linear infinite;
-  margin-left: 20px;
+  animation: girar-spiral 3s linear infinite;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
 }
-@keyframes girar {
+@keyframes girar-spiral {
   from {
     transform: rotate(0deg);
   }
@@ -103,311 +96,168 @@ body {
   }
 }
 
-/* Seção Sobre */
+/* Sobre */
 #sobre {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   align-items: center;
-  margin-bottom: 60px;
+  margin: 40px 0;
+}
+.foto-dono {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid var(--cor-destaque);
+  box-shadow: 0 0 20px var(--cor-destaque);
 }
 .foto-dono img {
-  width: 350px;
-  border-radius: 50%;
-  border: 5px solid var(--cor-destaque);
-  box-shadow: 0 0 15px var(--cor-destaque);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .sobre-texto {
   max-width: 600px;
-  line-height: 1.8;
   font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--cor-texto);
-}
-.sobre-texto strong {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
-  color: var(--cor-destaque);
+  line-height: 1.8;
 }
 
-/* Seção Serviços */
+/* Títulos */
+.titulo-animado {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3rem;
+  color: var(--cor-destaque);
+  background: #333;
+  padding: 15px;
+  text-align: center;
+  border-radius: 12px;
+  animation: fadePulse 2.5s ease-in-out infinite;
+}
+@keyframes fadePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+/* Serviços */
 #servicos {
   background-color: var(--cor-fundo-escuro);
   padding: 60px 20px;
   border-radius: 12px;
-  margin-bottom: 60px;
-}
-#servicos h2.titulo-animado {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  text-align: center;
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  animation: fadeZoom 1.2s ease forwards;
-  opacity: 0;
 }
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 0 10px;
+  gap: 20px;
 }
 .servico-item {
-  background-color: #2b2b2b;
+  background: #2b2b2b;
   color: var(--cor-texto-claro);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-left: 6px solid var(--cor-destaque);
-  transition: transform 0.3s;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.servico-item:hover {
-  transform: scale(1.05);
+  border-left: 5px solid var(--cor-destaque);
 }
 .servico-item h3 {
   font-family: 'Fredoka One', cursive;
 }
 .servico-item .preco {
-  font-size: 1.2rem;
-  font-weight: 700;
   color: var(--cor-destaque);
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
-/* Seção Equipe */
-#equipe {
-  margin-bottom: 60px;
-}
-#equipe h2.titulo-animado {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  animation: fadeZoom 1.2s ease forwards;
-  opacity: 0;
-  text-align: center;
-  color: var(--cor-primaria);
-}
+/* Equipe */
 .equipe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  justify-items: center;
+  gap: 30px;
 }
 .membro {
   text-align: center;
 }
 .membro img {
-  width: 300px;
+  width: 220px;
   border-radius: 50%;
   border: 5px solid var(--cor-destaque);
-  margin-bottom: 20px;
-  aspect-ratio: 1 / 1;
+  box-shadow: 0 0 15px var(--cor-destaque);
   object-fit: cover;
-  box-shadow: 0 0 20px var(--cor-destaque);
 }
 .membro h3 {
   font-family: 'Fredoka One', cursive;
-  font-size: 1.8rem;
-  color: var(--cor-destaque);
+  margin-top: 10px;
 }
 
-/* Seção Galeria */
+/* Galeria */
 #galeria {
-  background-color: var(--cor-fundo-escuro);
+  background: var(--cor-fundo-escuro);
   padding: 60px 20px;
   border-radius: 12px;
-  margin-bottom: 60px;
-}
-#galeria h2.titulo-animado {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  animation: fadeZoom 1.2s ease forwards;
-  opacity: 0;
-  text-align: center;
-  color: var(--cor-texto-claro);
 }
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 /* Avaliações */
-#avaliacoes {
-  margin-bottom: 60px;
-}
-#avaliacoes h2.titulo-animado {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  animation: fadeZoom 1.2s ease forwards;
-  opacity: 0;
-  text-align: center;
-  color: var(--cor-primaria);
-}
 .avaliacoes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-.avaliacao-card {
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  padding: 25px 30px;
-  box-shadow: 0 0 20px #ccc;
-  transition: box-shadow 0.3s ease;
-  font-style: italic;
-}
-.avaliacao-card:hover {
-  box-shadow: 0 0 25px var(--cor-destaque);
-}
-.avaliacao-card .estrelas {
-  color: #FFD700;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-.avaliacao-card h4 {
-  margin-top: 15px;
-  font-weight: 600;
-  color: var(--cor-primaria);
-}
-
-/* Botão Avaliar */
-.avaliar-btn-container {
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   margin-top: 30px;
 }
+.avaliacao-card {
+  background: #f7f7f7;
+  padding: 20px;
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: 8px;
+}
+.estrelas {
+  color: gold;
+}
 .cta-button {
-  background-color: var(--cor-destaque);
-  color: var(--cor-primaria);
-  padding: 15px 35px;
-  border-radius: 40px;
-  font-weight: 700;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+  padding: 10px 20px;
+  border-radius: 6px;
   text-decoration: none;
-  box-shadow: 0 0 15px var(--cor-destaque);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-button:hover {
-  background-color: #b88a25;
-  box-shadow: 0 0 30px #b88a25;
+  background: #c9a335;
 }
 
 /* Footer */
 footer {
-  background-color: var(--cor-primaria);
+  background: #1a1a1a;
   color: var(--cor-texto-claro);
   padding: 40px 20px;
-  font-size: 0.95rem;
+  margin-top: 40px;
 }
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 35px;
-  margin-bottom: 30px;
+  gap: 30px;
 }
-.footer-col h3, .footer-col h4 {
-  margin-bottom: 18px;
-  font-family: 'Fredoka One', cursive;
-  color: var(--cor-destaque);
+.footer-col h4, .footer-col h3 {
+  margin-bottom: 10px;
 }
 .footer-col a {
   color: var(--cor-texto-claro);
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 .footer-col a:hover {
   text-decoration: underline;
 }
 .social-icon img {
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s;
-  width: 50px;
-  height: 50px;
-}
-.social-icon img:hover {
-  filter: brightness(0.8) invert(0.9);
-}
-copyright {
-  text-align: center;
-  font-size: 0.9rem;
+  width: 32px;
+  height: 32px;
 }
 
-/* Título Animado */
-@keyframes fadeZoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-  #sobre {
-    flex-direction: column;
-  }
-  .foto-dono img {
-    width: 250px;
-    margin: 0 auto 20px auto;
-    display: block;
-  }
-  #header .container {
-    flex-wrap: wrap;
-  }
-  #header nav {
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-  }
-  #header nav a {
-    margin: 0 10px;
-    display: inline-block;
-  }
-  .barber-pole {
-    margin: 20px auto 0 auto;
-    width: 30px;
-    height: 140px;
-  }
-  .equipe-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .servicos-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Margens laterais listradas em preto */
-body {
-  border-left: 60px solid black;
-  border-right: 60px solid black;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    black 0,
-    black 30px,
-    #111 30px,
-    #111 60px
-  );
-}
-
-/* Canto clicável para brincadeira */
-.click-corner {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  z-index: 9999;
-  cursor: pointer;
-  background: transparent;
-  opacity: 0; /* invisível mas clicável */
-}

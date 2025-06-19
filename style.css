@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap');
+
 :root {
   --cor-primaria: #1a1a1a;
   --cor-fundo: #ffffff;
@@ -5,7 +7,7 @@
   --cor-texto: #333333;
   --cor-texto-claro: #f0f0f0;
   --cor-fundo-escuro: #1a1a1a;
-  --cor-lateral: #D4AF37;
+  --cor-lateral: #000000;
 }
 
 /* Reset e Padrões */
@@ -18,12 +20,19 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  margin: 0 20px;
-  border-left: 15px solid var(--cor-lateral);
-  border-right: 15px solid var(--cor-lateral);
+  margin: 0 40px; /* aumentei para margem maior */
+  border-left: 60px solid var(--cor-lateral);
+  border-right: 60px solid var(--cor-lateral);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    black 0,
+    black 20px,
+    #111 20px,
+    #111 40px
+  );
 }
 
 /* Fade in nas seções */
@@ -60,6 +69,8 @@ body {
   font-weight: 600;
   color: var(--cor-texto-claro);
   transition: color 0.3s;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
 }
 #header nav a:hover {
   color: var(--cor-destaque);
@@ -67,25 +78,21 @@ body {
 
 /* Barber Pole */
 .barber-pole {
-  width: 25px;
-  height: 150px;
-  margin-left: 15px;
-  border-radius: 8px;
+  width: 40px;
+  height: 180px;
+  border-radius: 12px;
   background: repeating-linear-gradient(
     45deg,
     #d92f2f,
-    #d92f2f 10px,
-    white 10px,
-    white 20px,
-    #1a1a1a 20px,
-    #1a1a1a 30px
+    #d92f2f 15px,
+    #005bbb 15px,
+    #005bbb 30px
   );
-  border: 2px solid #555;
-  cursor: pointer;
-  transition: transform 1s linear;
-}
-.barber-pole.rotating {
-  animation: girar 2s linear infinite;
+  border: 3px solid #555;
+  cursor: default;
+  animation: girar 3s linear infinite;
+  margin-left: 20px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
 }
 @keyframes girar {
   from {
@@ -97,183 +104,225 @@ body {
 }
 
 /* Seção Sobre */
-#sobre h2 {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  padding: 15px;
-  border-radius: 5px;
-  text-align: left;
+#sobre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.foto-dono img {
+  width: 350px;
+  border-radius: 50%;
+  border: 5px solid var(--cor-destaque);
+  box-shadow: 0 0 15px var(--cor-destaque);
 }
 .sobre-texto {
-  max-width: 800px;
+  max-width: 600px;
   line-height: 1.8;
-  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+.sobre-texto strong {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--cor-destaque);
 }
 
 /* Seção Serviços */
 #servicos {
   background-color: var(--cor-fundo-escuro);
-  padding-bottom: 60px;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-bottom: 60px;
 }
-#servicos h2 {
+#servicos h2.titulo-animado {
   background-color: var(--cor-primaria);
   color: var(--cor-texto-claro);
-  padding: 15px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
   margin-bottom: 40px;
   text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  animation: fadeZoom 1.2s ease forwards;
+  opacity: 0;
 }
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px;
   padding: 0 10px;
 }
 .servico-item {
   background-color: #2b2b2b;
   color: var(--cor-texto-claro);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 4px solid var(--cor-destaque);
+  border-left: 6px solid var(--cor-destaque);
   transition: transform 0.3s;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 .servico-item:hover {
   transform: scale(1.05);
 }
 .servico-item h3 {
-  font-size: 1.2rem;
+  font-family: 'Fredoka One', cursive;
 }
 .servico-item .preco {
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--cor-destaque);
 }
 
 /* Seção Equipe */
-#equipe h2 {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  padding: 15px;
-  border-radius: 5px;
+#equipe {
+  margin-bottom: 60px;
+}
+#equipe h2.titulo-animado {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
   margin-bottom: 40px;
+  animation: fadeZoom 1.2s ease forwards;
+  opacity: 0;
   text-align: center;
+  color: var(--cor-primaria);
 }
 .equipe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  gap: 40px;
+  justify-items: center;
 }
 .membro {
   text-align: center;
 }
 .membro img {
-  width: 100%;
+  width: 300px;
   border-radius: 50%;
-  border: 4px solid #eee;
-  margin-bottom: 15px;
+  border: 5px solid var(--cor-destaque);
+  margin-bottom: 20px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  box-shadow: 0 0 20px var(--cor-destaque);
 }
 .membro h3 {
-  font-family: 'Georgia', serif;
-  font-size: 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
   color: var(--cor-destaque);
 }
 
 /* Seção Galeria */
 #galeria {
   background-color: var(--cor-fundo-escuro);
-  padding-bottom: 60px;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-bottom: 60px;
 }
-#galeria h2 {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  padding: 15px;
-  border-radius: 5px;
+#galeria h2.titulo-animado {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
   margin-bottom: 40px;
+  animation: fadeZoom 1.2s ease forwards;
+  opacity: 0;
   text-align: center;
+  color: var(--cor-texto-claro);
 }
 .galeria-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
-  padding: 0 10px;
+  gap: 25px;
 }
 
-/* Seção Avaliações */
-#avaliacoes h2 {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  padding: 15px;
-  border-radius: 5px;
+/* Avaliações */
+#avaliacoes {
+  margin-bottom: 60px;
+}
+#avaliacoes h2.titulo-animado {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
   margin-bottom: 40px;
+  animation: fadeZoom 1.2s ease forwards;
+  opacity: 0;
   text-align: center;
+  color: var(--cor-primaria);
 }
 .avaliacoes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  margin-bottom: 50px;
-  padding: 0 10px;
 }
 .avaliacao-card {
   background-color: #f9f9f9;
-  padding: 30px;
-  border-radius: 8px;
-  border-left: 5px solid var(--cor-destaque);
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 0 20px #ccc;
+  transition: box-shadow 0.3s ease;
+  font-style: italic;
+}
+.avaliacao-card:hover {
+  box-shadow: 0 0 25px var(--cor-destaque);
 }
 .avaliacao-card .estrelas {
-  color: var(--cor-destaque);
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-.avaliacao-card p {
-  font-style: italic;
-  margin-bottom: 15px;
+  color: #FFD700;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 .avaliacao-card h4 {
-  text-align: right;
+  margin-top: 15px;
+  font-weight: 600;
+  color: var(--cor-primaria);
 }
+
+/* Botão Avaliar */
 .avaliar-btn-container {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .cta-button {
   background-color: var(--cor-destaque);
   color: var(--cor-primaria);
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  padding: 15px 35px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--cor-destaque);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-button:hover {
-  background-color: #b89225;
+  background-color: #b88a25;
+  box-shadow: 0 0 30px #b88a25;
 }
 
-/* Rodapé */
+/* Footer */
 footer {
   background-color: var(--cor-primaria);
   color: var(--cor-texto-claro);
-  padding: 50px 20px 20px 20px;
+  padding: 40px 20px;
+  font-size: 0.95rem;
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto 30px auto;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+  margin-bottom: 30px;
 }
 .footer-col h3, .footer-col h4 {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  font-family: 'Fredoka One', cursive;
+  color: var(--cor-destaque);
 }
 .footer-col a {
   color: var(--cor-texto-claro);
   text-decoration: none;
-  display: block;
-  margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 .footer-col a:hover {
   text-decoration: underline;
@@ -281,8 +330,8 @@ footer {
 .social-icon img {
   filter: brightness(0) invert(1);
   transition: filter 0.3s;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
 }
 .social-icon img:hover {
   filter: brightness(0.8) invert(0.9);
@@ -292,22 +341,73 @@ copyright {
   font-size: 0.9rem;
 }
 
-/* Margens laterais coloridas */
-body {
-  border-left: 15px solid var(--cor-lateral);
-  border-right: 15px solid var(--cor-lateral);
+/* Título Animado */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  #header .container {
+@media (max-width: 900px) {
+  #sobre {
     flex-direction: column;
   }
+  .foto-dono img {
+    width: 250px;
+    margin: 0 auto 20px auto;
+    display: block;
+  }
+  #header .container {
+    flex-wrap: wrap;
+  }
   #header nav {
-    margin-top: 15px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  #header nav a {
+    margin: 0 10px;
+    display: inline-block;
   }
   .barber-pole {
     margin: 20px auto 0 auto;
+    width: 30px;
+    height: 140px;
+  }
+  .equipe-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .servicos-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
+/* Margens laterais listradas em preto */
+body {
+  border-left: 60px solid black;
+  border-right: 60px solid black;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    black 0,
+    black 30px,
+    #111 30px,
+    #111 60px
+  );
+}
+
+/* Canto clicável para brincadeira */
+.click-corner {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  cursor: pointer;
+  background: transparent;
+  opacity: 0; /* invisível mas clicável */
+}

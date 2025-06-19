@@ -1,53 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Site da Matheu's Barbershop carregado.");
-
+  // Serviços selecionados e soma
   const servicos = document.querySelectorAll('.servico-item');
-  const listaSelecionados = document.getElementById('lista-servicos');
-  const totalElement = document.getElementById('total');
+  const listaServicos = document.getElementById('lista-servicos');
+  const totalSpan = document.getElementById('total');
+
   let selecionados = [];
-  let total = 0;
 
-  servicos.forEach((botao) => {
-    botao.addEventListener('click', () => {
-      const nomeServico = botao.textContent.trim();
-      const preco = parseFloat(botao.getAttribute('data-preco'));
+  servicos.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const nome = btn.textContent.split(' — ')[0];
+      const preco = parseFloat(btn.dataset.preco);
 
-      if (botao.classList.contains('selected')) {
-        botao.classList.remove('selected');
-        selecionados = selecionados.filter(s => s.nome !== nomeServico);
+      // Alternar seleção
+      if (btn.classList.contains('selected')) {
+        btn.classList.remove('selected');
+        selecionados = selecionados.filter((s) => s.nome !== nome);
       } else {
-        botao.classList.add('selected');
-        selecionados.push({ nome: nomeServico, preco: preco });
+        btn.classList.add('selected');
+        selecionados.push({ nome, preco });
       }
 
-      total = selecionados.reduce((acc, cur) => acc + cur.preco, 0);
-
-      // Atualiza a lista visível
-      listaSelecionados.innerHTML = '';
-      selecionados.forEach(s => {
-        const li = document.createElement('li');
-        li.textContent = `${s.nome}`;
-        listaSelecionados.appendChild(li);
-      });
-
-      // Atualiza total formatado
-      totalElement.textContent = total.toFixed(2).replace('.', ',');
+      atualizarResumo();
     });
   });
 
-  // Animação títulos crescendo ao entrarem na viewport
-  const titulos = document.querySelectorAll('.titulo-animado');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('grow');
-        } else {
-          entry.target.classList.remove('grow');
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  titulos.forEach(titulo => observer.observe(titulo));
+  function atualizarResumo() {
+    listaServicos.innerHTML = '';
+    let soma = 0;
+    selecionados.forEach(({ nome, preco }) => {
+      const li = document.createElement('li');
+      li.textContent = nome + ' - R$ ' + preco.toFixed(2);
+      listaServicos.appendChild(li);
+      soma += preco;
+    });
+    totalSpan.textContent = soma.toFixed(2);
+  }
+
+  // Animação de crescimento do título conforme scroll
+  const titulosAnimados = document.querySelectorAll('.titulo-animado');
+  const crescerTitulo = () => {
+    titulosAnimados.forEach((titulo) => {
+      const rect = titulo.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        titulo.classList.add('grow');
+      } else {
+        titulo.classList.remove('grow');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', crescerTitulo);
+  crescerTitulo();
 });

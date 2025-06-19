@@ -3,133 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matheu's Barbershop - Estilo e Tradição em Mauá</title>
-  <meta
-    name="description"
-    content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop."
-  />
+  <title>Matheu's Barbershop</title>
+  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba e estilo." />
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
-  <header id="header">
-    <div class="container header-container">
-      <a href="#" class="logo" aria-label="Logo Matheu's Barbershop">
+  <div class="margem-lateral"></div>
+  <div class="conteudo-principal">
+    <header id="header">
+      <div class="header-container">
         <div class="logo-circle">LOGOTIPO</div>
-      </a>
-      <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#contato">Contato</a>
-      </nav>
-      <div class="barber-pole"></div>
-    </div>
-  </header>
-
-  <main>
-    <section id="sobre" class="container sobre-container">
-      <div class="sobre-texto">
-        <h2 class="titulo-animado">Matheus Barbershop</h2>
-        <p>
-          "Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além
-          de apenas abrir um negócio. Eu queria criar um ponto de encontro, um
-          lugar onde cada cliente se sentisse em casa no momento em que
-          passasse pela porta.
-        </p>
-        <p>
-          Para nós, um corte de cabelo ou uma barba bem-feita são o resultado
-          final, mas a jornada até lá é o que realmente importa. Acreditamos
-          que o verdadeiro valor do nosso trabalho está no atendimento de
-          excelência e na relação de confiança que construímos. Cada pessoa
-          que senta em nossas cadeiras não é apenas mais um cliente; é um amigo
-          que nos confia seu estilo e seu tempo. E nós levamos essa
-          responsabilidade muito a sério.
-        </p>
-        <p>
-          Por isso, investimos em um ambiente de alta qualidade, pensado em
-          cada detalhe para ser o seu refúgio da correria. Um espaço limpo,
-          confortável e com uma energia boa, onde você pode relaxar, ter uma
-          boa conversa e, claro, sair com o visual renovado e a autoestima lá em
-          cima.
-        </p>
-        <p>
-          A Matheu's Barbershop é a soma da nossa paixão pela barbearia e do
-          respeito que temos por você. Seja sempre bem-vindo."
-        </p>
-        <p><strong>– Matheus, Fundador da Matheu's Barbershop</strong></p>
+        <nav>
+          <a href="#servicos">Serviços</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="barber-pole"></div>
       </div>
-      <div class="foto-matheus"></div>
+    </header>
+
+    <section id="sobre" class="section">
+      <h1 class="titulo-animado">Matheu's Barbershop</h1>
+      <div class="sobre-content">
+        <p>
+          Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além de apenas abrir um negócio. Eu queria criar um ponto de encontro, um lugar onde cada cliente se sentisse em casa no momento em que passasse pela porta.
+        </p>
+        <p>
+          Para nós, um corte de cabelo ou uma barba bem-feita são o resultado final, mas a jornada até lá é o que realmente importa. Acreditamos que o verdadeiro valor do nosso trabalho está no atendimento de excelência e na relação de confiança que construímos. Cada pessoa que senta em nossas cadeiras não é apenas mais um cliente; é um amigo que nos confia seu estilo e seu tempo. E nós levamos essa responsabilidade muito a sério.
+        </p>
+        <p>
+          Por isso, investimos em um ambiente de alta qualidade, pensado em cada detalhe para ser o seu refúgio da correria. Um espaço limpo, confortável e com uma energia boa, onde você pode relaxar, ter uma boa conversa e, claro, sair com o visual renovado e a autoestima lá em cima.
+        </p>
+        <p>
+          A Matheu's Barbershop é a soma da nossa paixão pela barbearia e do respeito que temos por você. Seja sempre bem-vindo.
+        </p>
+        <p style="font-style: italic; text-align: right;">– Matheus, Fundador da Matheu's Barbershop</p>
+        <div class="foto-dono"></div>
+      </div>
     </section>
 
-    <section id="servicos" class="bg-dark">
+    <section id="servicos" class="section">
       <h2 class="titulo-animado">Nossos Serviços</h2>
-      <div class="container servicos-grid">
-        <button class="servico-item" data-preco="40">Corte — R$ 40,00</button>
-        <button class="servico-item" data-preco="65">Cabelo e Barba — R$ 65,00</button>
-        <button class="servico-item" data-preco="25">Barba — R$ 25,00</button>
-        <button class="servico-item" data-preco="10">Sobrancelha — R$ 10,00</button>
-        <button class="servico-item" data-preco="25">Alisamento — R$ 25,00</button>
-        <button class="servico-item" data-preco="30">Cabelo Afro — R$ 30,00</button>
-        <button class="servico-item" data-preco="45">Luzes — R$ 45 a 60</button>
-        <button class="servico-item" data-preco="10">Pézinho — R$ 10,00</button>
+      <div class="servicos-lista">
+        <button class="servico-item" data-preco="40">Corte — R$ 40</button>
+        <button class="servico-item" data-preco="65">Cabelo e Barba — R$ 65</button>
+        <button class="servico-item" data-preco="25">Barba — R$ 25</button>
+        <button class="servico-item" data-preco="10">Sobrancelha — R$ 10</button>
+        <button class="servico-item" data-preco="25">Alisamento — R$ 25</button>
+        <button class="servico-item" data-preco="30">Cabelo Afro — R$ 30</button>
+        <button class="servico-item" data-preco="45">Luzes (mínimo) — R$ 45</button>
+        <button class="servico-item" data-preco="60">Luzes (máximo) — R$ 60</button>
+        <button class="servico-item" data-preco="10">Pezinho — R$ 10</button>
       </div>
-      <div class="container resumo-servicos melhorado">
-        <h3>Serviços selecionados:</h3>
-        <ul id="lista-servicos"></ul>
-        <p>Total: R$ <span id="total">0,00</span></p>
-      </div>
+      <ul id="lista-servicos"></ul>
+      <p>Total: R$ <span id="total">0,00</span></p>
     </section>
 
-    <section id="equipe" class="container equipe-container">
+    <section id="equipe" class="section">
       <h2 class="titulo-animado">Nossa Equipe</h2>
-      <div class="equipe-grid">
-        <div class="membro">
-          <img
-            src="https://placehold.co/300x300/e0e0e0/333?text=Lyon"
-            alt="Foto do Barbeiro Lyon"
-          />
-          <h3>Lyon</h3>
-          <p class="comentario">"Sempre atendo com dedicação e estilo."</p>
-        </div>
-        <div class="membro">
-          <img
-            src="https://placehold.co/300x300/e0e0e0/333?text=Eduardo"
-            alt="Foto do Barbeiro Eduardo"
-          />
-          <h3>Eduardo</h3>
-          <p class="comentario">"Cortes precisos que valorizam seu estilo."</p>
-        </div>
-        <div class="membro">
-          <img
-            src="https://placehold.co/300x300/e0e0e0/333?text=Kyan"
-            alt="Foto do Barbeiro Kyan"
-          />
-          <h3>Kyan</h3>
-          <p class="comentario">"Aqui seu visual é tratado com carinho."</p>
-        </div>
-      </div>
-      <div class="membro dono">
-        <img
-          src="https://placehold.co/300x300/e0e0e0/333?text=Matheus"
-          alt="Foto do Barbeiro Matheus"
-        />
-        <h3>Matheus</h3>
-        <p class="comentario">"Fundador e apaixonado pela arte da barbearia."</p>
+      <div class="equipe-lista">
+        <div class="funcionario">Lyon <p>"Adoro transformar o visual!"</p></div>
+        <div class="funcionario">Eduardo <p>"Corte impecável é comigo."</p></div>
+        <div class="funcionario">Kyan <p>"Estilo para todas as idades."</p></div>
+        <div class="funcionario dono">Matheus <p>"A barbearia é minha paixão."</p></div>
       </div>
     </section>
 
-    <section id="galeria" class="bg-dark">
+    <section id="galeria" class="section">
       <h2 class="titulo-animado">Galeria de Clientes</h2>
-      <div class="container galeria-grid">
-        <div class="quadro-vazio"></div>
-        <div class="quadro-vazio"></div>
-        <div class="quadro-vazio"></div>
-        <div class="quadro-vazio"></div>
-        <div class="quadro-vazio"></div>
+      <div class="galeria-grid">
         <div class="quadro-vazio"></div>
         <div class="quadro-vazio"></div>
         <div class="quadro-vazio"></div>
@@ -138,46 +82,17 @@
       </div>
     </section>
 
-    <section id="horarios" class="container horarios-container">
-      <h2 class="titulo-animado">Horários de Funcionamento</h2>
-      <p>
-        Segunda a Sexta: 08:00 - 20:00<br />
-        Sábado: 08:00 - 18:00<br />
-        Domingo: Fechado
-      </p>
+    <section id="contato" class="section">
+      <h2 class="titulo-animado">ENDEREÇO E CONTATO</h2>
+      <p><a href="https://www.google.com/maps/place/Galeria+Veneza" target="_blank">Galeria Veneza - Mauá - SP</a></p>
+      <div class="contato-icones">
+        <a href="https://wa.me/SEUNUMERO" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/SEUINSTA" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
     </section>
 
-    <footer id="contato">
-      <div class="container">
-        <h2>Endereço e Contato</h2>
-        <div class="endereco-galeria">
-          <h4>
-            <a
-              href="https://www.google.com/maps/place/R.+Vito+Pedro+Dell'Ant%C3%B4nia,+85,+Mau%C3%A1+-+SP,+09310-070"
-              target="_blank"
-              >R. Vito Pedro Dell'Antônia, 85, Mauá - SP, 09310-070 | Galeria Veneza</a
-            >
-          </h4>
-        </div>
-        <div class="redes-sociais">
-          <a
-            href="https://wa.me/5511996681789"
-            target="_blank"
-            aria-label="WhatsApp Matheu's Barbershop"
-            class="social-icon"
-            ><i class="fab fa-whatsapp"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/matheussbarbershop"
-            target="_blank"
-            aria-label="Instagram Matheu's Barbershop"
-            class="social-icon"
-            ><i class="fab fa-instagram"></i
-          ></a>
-        </div>
-      </div>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div class="margem-lateral"></div>
+  <script src="script.js"></script>
+</body>
 </html>

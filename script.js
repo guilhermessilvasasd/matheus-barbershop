@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Site da Matheu's Barbershop carregado.");
-
   const botoesServicos = document.querySelectorAll('.servico-item button');
   const totalSpan = document.getElementById('total');
 
@@ -38,19 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
       totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
-
-  // Títulos crescendo ao entrar na viewport
-  const titulos = document.querySelectorAll('.titulo-secao');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('crescendo');
-      } else {
-        entry.target.classList.remove('crescendo');
-      }
-    });
-  }, { threshold: 0.6 });
-
-  titulos.forEach(titulo => observer.observe(titulo));
 });
+

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const botoes = document.querySelectorAll('.servico-item button');
+  const botoesServicos = document.querySelectorAll('.servico-item button');
   const totalSpan = document.getElementById('total');
+
+  let totalSelecionado = 0;
   const precos = {
     'Corte - R$ 40': 40,
     'Cabelo e Barba - R$ 65': 65,
@@ -11,38 +13,43 @@ document.addEventListener('DOMContentLoaded', () => {
     'Luzes - R$ 45 a R$ 60': 45,
     'Pezinho - R$ 10': 10
   };
-  let selecionados = new Set();
 
-  botoes.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const texto = btn.textContent.trim();
-      if (selecionados.has(texto)) {
-        selecionados.delete(texto);
-        btn.classList.remove('selecionado');
+  let servicosSelecionados = new Set();
+
+  botoesServicos.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const texto = botao.textContent.trim();
+
+      if (servicosSelecionados.has(texto)) {
+        servicosSelecionados.delete(texto);
+        botao.classList.remove('selecionado');
       } else {
-        selecionados.add(texto);
-        btn.classList.add('selecionado');
+        servicosSelecionados.add(texto);
+        botao.classList.add('selecionado');
       }
 
-      let total = 0;
-      selecionados.forEach(s => {
-        total += precos[s] || 0;
+      totalSelecionado = 0;
+      servicosSelecionados.forEach(item => {
+        totalSelecionado += precos[item] || 0;
       });
 
-      totalSpan.textContent = total.toFixed(2).replace('.', ',');
+      totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
 
-  // Animação ao rolar para cada seção
-  const observer = new IntersectionObserver((entries) => {
+  // Animação de entrada para cada seção ao rolar
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('ativo');
+        entry.target.classList.add('crescendo');
+      } else {
+        entry.target.classList.remove('crescendo');
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.5 });
 
-  document.querySelectorAll('.section-padrao').forEach(secao => {
-    observer.observe(secao);
+  document.querySelectorAll('.titulo-secao').forEach(titulo => {
+    observer.observe(titulo);
   });
 });
+

@@ -1,14 +1,13 @@
 :root {
-  --cor-primaria: #000000;
+  --cor-primaria: #1a1a1a;
   --cor-fundo: #ffffff;
-  --cor-destaque: #D4AF37; /* Ouro */
+  --cor-destaque: #d4af37; /* Ouro */
   --cor-texto: #333333;
   --cor-texto-claro: #f0f0f0;
   --cor-fundo-escuro: #1a1a1a;
-  --cor-cinza-claro: #e0e0e0;
 }
 
-/* Reset e Padrões */
+/* Reset e padrões */
 * {
   margin: 0;
   padding: 0;
@@ -16,372 +15,338 @@
 }
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  margin: 0 30px;
-  border-left: 30px solid black;
-  border-right: 30px solid black;
+  border-left: 20px solid black;
+  border-right: 20px solid black;
 }
-.container {
-  max-width: 1100px;
+.page-margins {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-/* Header */
+/* Header fixo */
 #header {
-  background-color: black;
-  color: var(--cor-texto-claro);
+  background-color: var(--cor-primaria);
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
-#header .container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
 }
 .logo-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000000 0%, #d4af37 85%);
+  color: var(--cor-destaque);
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 1.8rem;
-  background: var(--cor-destaque);
-  color: black;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  font-size: 1.25rem;
   line-height: 1.2;
-  box-shadow: 0 0 12px var(--cor-destaque);
+  text-align: center;
   user-select: none;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px #d4af37;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+.logo-circle-inner span {
+  display: block;
+  padding: 5px;
+}
+.logo-circle:hover {
+  transform: scale(1.1);
 }
 #header nav a {
   color: var(--cor-texto-claro);
-  font-weight: 600;
-  margin: 0 10px;
-  padding: 7px 15px;
-  background: var(--cor-cinza-claro);
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 15px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
   user-select: none;
 }
-#header nav a:hover,
-#header nav a:focus {
-  background: var(--cor-destaque);
-  color: black;
-  outline: none;
+#header nav a:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria);
+  text-decoration: none;
 }
 
-/* Barber Pole */
+/* Barber Pole - espiral e vertical */
 .barber-pole {
   width: 25px;
-  height: 150px;
+  height: 160px;
+  border-radius: 30px;
   margin-left: 15px;
-  background: repeating-linear-gradient(
-    45deg,
-    red 0,
-    red 10px,
-    blue 10px,
-    blue 20px
+  background: repeating-conic-gradient(
+    from 0deg,
+    #d90429 0deg 45deg,
+    #0b3d91 45deg 90deg
   );
-  border-radius: 12px;
-  animation: girarSpiral 2.5s linear infinite;
+  animation: spin-spiral 4s linear infinite;
+  cursor: default;
 }
-@keyframes girarSpiral {
+@keyframes spin-spiral {
   0% {
-    background-position: 0 0;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
   }
   100% {
-    background-position: 60px 60px;
+    transform: rotate(360deg) scale(1);
   }
 }
 
 /* Seção Sobre */
 #sobre {
-  padding: 60px 0;
-  text-align: center;
-  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-primaria);
 }
-.foto-matheus {
-  width: 250px;
-  height: 250px;
+.foto-dono img {
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  border: 5px solid var(--cor-destaque);
+  border: 4px solid var(--cor-destaque);
   object-fit: cover;
-  margin-bottom: 25px;
-  box-shadow: 0 0 15px var(--cor-destaque);
-}
-.sobre-texto p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
+  box-shadow: 0 0 20px var(--cor-destaque);
   user-select: none;
 }
+.sobre-texto {
+  max-width: 700px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  user-select: text;
+}
 
-/* Títulos Animados */
+/* Títulos animados que crescem ao chegar na viewport */
 .titulo-animado {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 2.8rem;
-  text-align: center;
-  margin: 80px 0 60px 0;
+  font-size: 3.2rem;
   color: var(--cor-destaque);
-  text-shadow:
-    0 0 5px #d4af37,
-    0 0 10px #d4af37,
-    0 0 15px #d4af37;
+  text-align: center;
+  margin-bottom: 50px;
   user-select: none;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-  cursor: default;
+  transition: transform 0.5s ease;
 }
-.titulo-animado:hover {
+.titulo-animado.grow {
   transform: scale(1.15);
-  text-shadow:
-    0 0 8px #d4af37,
-    0 0 16px #d4af37,
-    0 0 24px #d4af37;
 }
 
 /* Serviços */
+#servicos {
+  background-color: var(--cor-fundo-escuro);
+  padding-bottom: 50px;
+  padding-top: 60px;
+  border-radius: 12px;
+}
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  user-select: none;
+  gap: 25px;
+  padding: 0 20px;
 }
 .servico-item {
-  background-color: #222;
-  color: var(--cor-destaque);
-  border: 2px solid var(--cor-destaque);
+  background-color: #2b2b2b;
+  color: var(--cor-texto-claro);
+  padding: 18px 25px;
+  border-radius: 10px;
   font-weight: 700;
-  padding: 18px 20px;
-  font-size: 1.15rem;
-  border-radius: 12px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-left: 5px solid var(--cor-destaque);
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 .servico-item:hover,
 .servico-item.selected {
-  background-color: var(--cor-destaque);
-  color: black;
-  transform: scale(1.05);
+  background-color: #4c3a0d;
+  border-color: #ffe066;
+  color: #ffe066;
 }
 .servico-item .preco {
   font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--cor-destaque);
 }
 
-/* Lista e Total */
+/* Total serviços */
 .total-servicos {
-  max-width: 900px;
-  margin: 30px auto 60px auto;
-  background: #222;
-  padding: 15px 25px;
-  border-radius: 12px;
-  color: var(--cor-destaque);
-  box-shadow: 0 0 15px var(--cor-destaque);
-  user-select: none;
-}
-.total-servicos h3 {
-  font-weight: 900;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-#lista-servicos {
-  list-style: none;
+  max-width: 700px;
+  margin: 40px auto 20px;
+  color: var(--cor-texto-claro);
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  padding-left: 20px;
-}
-#lista-servicos li {
-  margin-bottom: 6px;
-}
-#total {
   font-size: 1.3rem;
-  font-weight: 900;
   text-align: center;
+  user-select: none;
 }
 
 /* Equipe */
 .equipe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  user-select: none;
+  margin: 0 20px 80px;
 }
 .membro {
-  background: #111;
-  border-radius: 15px;
-  padding: 25px 15px 30px 15px;
   text-align: center;
-  box-shadow: 0 0 15px var(--cor-destaque);
-  color: var(--cor-texto-claro);
+  user-select: none;
 }
 .membro img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  border: 4px solid var(--cor-destaque);
   object-fit: cover;
   margin-bottom: 15px;
   box-shadow: 0 0 15px var(--cor-destaque);
+  transition: transform 0.3s ease;
 }
 .membro h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+  user-select: none;
 }
-.comentario {
+.membro p.comentario {
   font-style: italic;
   font-size: 1rem;
-  color: #ddd;
+  color: #666;
+  user-select: text;
+}
+.membro.dono {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 /* Galeria */
+#galeria {
+  background-color: var(--cor-fundo-escuro);
+  padding: 60px 0 80px;
+  border-radius: 12px;
+}
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto 80px auto;
-  user-select: none;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-.galeria-item {
-  background: black;
+.quadro-vazio {
+  background-color: black;
   border: 3px solid var(--cor-destaque);
+  height: 160px;
   border-radius: 8px;
-  aspect-ratio: 1 / 1;
-  transition: box-shadow 0.3s ease;
-}
-.galeria-item:hover {
-  box-shadow: 0 0 15px var(--cor-destaque);
+  user-select: none;
 }
 
 /* Horários */
 #horarios {
-  text-align: center;
   margin-bottom: 80px;
-}
-.horarios-destaque {
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--cor-destaque);
+  text-align: center;
+  color: var(--cor-primaria);
   user-select: none;
-  text-shadow: 0 0 5px var(--cor-destaque);
+}
+.horarios-texto {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  color: var(--cor-destaque);
 }
 
 /* Rodapé */
 footer {
-  background: black;
+  background-color: var(--cor-primaria);
+  padding: 30px 20px;
   color: var(--cor-texto-claro);
-  padding: 40px 20px 20px 20px;
+  text-align: center;
   user-select: none;
 }
-.footer-center {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-.footer-center h2 {
+footer h2 {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   color: var(--cor-destaque);
-  text-shadow:
-    0 0 6px #d4af37,
-    0 0 12px #d4af37;
-  cursor: default;
-  user-select: none;
+  text-transform: uppercase;
 }
-.endereco-galeria h4 {
-  font-weight: 900;
-  font-size: 1.3rem;
-  margin-bottom: 6px;
-  color: var(--cor-destaque);
-  user-select: none;
+.endereco-galeria h4 a {
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  user-select: text;
+  transition: color 0.3s ease;
 }
-.endereco-galeria p {
-  font-weight: 600;
-  margin-bottom: 18px;
-  user-select: none;
+.endereco-galeria h4 a:hover {
+  color: #fff56a;
 }
 .redes-sociais {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 15px;
 }
 .social-icon {
   color: var(--cor-destaque);
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   transition: color 0.3s ease;
 }
 .social-icon:hover {
-  color: #fff;
-  cursor: pointer;
+  color: #fff56a;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-  body {
-    margin: 0 15px;
-    border-left: 15px solid black;
-    border-right: 15px solid black;
-  }
-  .logo-circle {
-    font-size: 1.2rem;
-    width: 90px;
-    height: 90px;
-  }
-  #header nav a {
-    font-size: 0.9rem;
-    padding: 5px 8px;
-  }
-  .barber-pole {
-    height: 120px;
-    width: 18px;
-  }
-  .servicos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+/* Responsividade */
+@media (max-width: 768px) {
+  #sobre {
+    flex-direction: column;
   }
   .equipe-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
   }
-  .membro img {
-    width: 160px;
-    height: 160px;
+  .membro.dono {
+    grid-column: auto;
+    justify-self: center;
   }
   .galeria-grid {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
-  .social-icon {
-    font-size: 2.2rem;
+  .quadro-vazio {
+    height: 120px;
   }
-  .total-servicos {
-    max-width: 100%;
-    padding: 12px 15px;
+  .servicos-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
   }
+}
+
+/* Ajustes finais para o cabeçalho */
+#header nav a {
+  text-decoration: none; /* remove underline */
 }

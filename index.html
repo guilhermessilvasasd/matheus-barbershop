@@ -2,22 +2,39 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matheu's Barbershop - Estilo e Tradição em Mauá</title>
-  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop.">
-<link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop." />
+
+  <!-- Fonte para o corpo (Helvetica Neue, Arial fallback) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome para ícones -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-pVnDXc+NUz7pDcAAhzroRzrJY4JkxDPAQcX/0O6LZ0P9MFedWQjJ3FKbGHEQZC4iWt8RdB50lA0Pz8aZT4R+AA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header id="header">
     <div class="container">
       <a href="#" class="logo">
-        <img src="https://placehold.co/150x50/1a1a1a/D4AF37?text=Matheu's" alt="Logotipo Matheu's Barbershop" />
+        <img
+          src="https://placehold.co/150x80/000000/FFD700?text=Logo+Matheus"
+          alt="Logotipo Matheu's Barbershop"
+          style="height: 80px"
+        />
       </a>
       <nav>
+        <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
         <a href="#equipe">Equipe</a>
-        <a href="#galeria">Galeria</a>
         <a href="#contato">Contato</a>
       </nav>
       <div class="barber-pole"></div>
@@ -25,77 +42,85 @@
   </header>
 
   <main>
-    <h1 style="display:none;">Matheu's Barbershop - Estilo e Tradição em Mauá</h1>
-
     <section id="sobre" class="container">
+      <h2>Sobre Nós</h2>
       <div class="sobre-texto">
-        <h2>Nossa História</h2>
         <p>"Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além de apenas abrir um negócio. Eu queria criar um ponto de encontro, um lugar onde cada cliente se sentisse em casa no momento em que passasse pela porta.</p>
-        <p>Para nós, um corte de cabelo ou uma barba bem-feita são o resultado final, mas a jornada até lá é o que realmente importa."</p>
-        <p><strong>– Matheus, Fundador</strong></p>
+        <p>Para nós, um corte de cabelo ou uma barba bem-feita são o resultado final, mas a jornada até lá é o que realmente importa. Acreditamos que o verdadeiro valor do nosso trabalho está no atendimento de excelência e na relação de confiança que construímos. Cada pessoa que senta em nossas cadeiras não é apenas mais um cliente; é um amigo que nos confia seu estilo e seu tempo. E nós levamos essa responsabilidade muito a sério.</p>
+        <p>Por isso, investimos em um ambiente de alta qualidade, pensado em cada detalhe para ser o seu refúgio da correria. Um espaço limpo, confortável e com uma energia boa, onde você pode relaxar, ter uma boa conversa e, claro, sair com o visual renovado e a autoestima lá em cima.</p>
+        <p>A Matheu's Barbershop é a soma da nossa paixão pela barbearia e do respeito que temos por você. Seja sempre bem-vindo."</p>
+        <p><strong>– Matheus, Fundador da Matheu's Barbershop</strong></p>
       </div>
     </section>
 
     <section id="servicos" class="bg-dark">
-      <div class="container">
-        <h2>Nossos Serviços</h2>
-        <div class="servicos-grid">
-          <div class="servico-item"><h3>Corte</h3><span class="preco">R$ 40,00</span></div>
-          <div class="servico-item"><h3>Barba</h3><span class="preco">R$ 25,00</span></div>
-        </div>
+      <h2>Nossos Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico-item"><h3>Corte</h3><span class="preco">R$ 40,00</span></div>
+        <div class="servico-item"><h3>Cabelo e Barba</h3><span class="preco">R$ 65,00</span></div>
+        <div class="servico-item"><h3>Barba</h3><span class="preco">R$ 25,00</span></div>
+        <div class="servico-item"><h3>Sobrancelha</h3><span class="preco">R$ 10,00</span></div>
+        <div class="servico-item"><h3>Alisamento</h3><span class="preco">R$ 25,00</span></div>
+        <div class="servico-item"><h3>Cabelo Afro</h3><span class="preco">R$ 30,00</span></div>
+        <div class="servico-item"><h3>Luzes</h3><span class="preco">R$ 45,00 - R$ 60,00</span></div>
+        <div class="servico-item"><h3>Pezinho</h3><span class="preco">R$ 10,00</span></div>
       </div>
     </section>
 
     <section id="equipe" class="container">
-      <h2>Nossos Barbeiros</h2>
+      <h2>Nossa Equipe</h2>
       <div class="equipe-grid">
         <div class="membro">
-          <img src="https://placehold.co/300x300/e0e0e0/333?text=Matheus" alt="Foto do Barbeiro Matheus" />
+          <img src="PLACEHOLDER1.png" alt="Matheus" />
           <h3>Matheus</h3>
         </div>
-      </div>
-    </section>
-
-    <section id="avaliacoes" class="container">
-      <h2>O Que Dizem Nossos Clientes</h2>
-      <div class="avaliacoes-grid">
-        <div class="avaliacao-card">
-          <div class="estrelas">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p>"Atendimento impecável!"</p>
-          <h4>- João P.</h4>
+        <div class="membro">
+          <img src="PLACEHOLDER2.png" alt="Lyon" />
+          <h3>Lyon</h3>
         </div>
-      </div>
-      <div class="avaliar-btn-container">
-        <a href="https://www.google.com/maps/place/Matheus+Barbershop/reviews" target="_blank" rel="noopener noreferrer" class="cta-button">Deixe sua avaliação no Google</a>
+        <div class="membro">
+          <img src="PLACEHOLDER3.png" alt="Eduardo" />
+          <h3>Eduardo</h3>
+        </div>
+        <div class="membro">
+          <img src="PLACEHOLDER4.png" alt="Kyan" />
+          <h3>Kyan</h3>
+        </div>
       </div>
     </section>
   </main>
 
   <footer id="contato">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h3>Matheu's Barbershop</h3>
-          <p>Onde o Estilo Clássico Encontra a Atitude Moderna.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Contato e Endereço</h4>
-          <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511996681789" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">(11) 99668-1789</a></p>
-          <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=R.+Vito+Pedro+Dell'Antônia,+85,+Mauá" target="_blank" rel="noopener noreferrer" aria-label="Abrir mapa">R. Vito Pedro Dell'Antônia, 85</a></p>
-        </div>
-        <div class="footer-col">
-          <h4>Siga-nos</h4>
-          <a href="https://www.instagram.com/matheussbarbershop" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Matheu's Barbershop</h3>
+        <p>Onde o Estilo Clássico Encontra a Atitude Moderna.</p>
       </div>
-      <div class="copyright">
-        &copy; 2025 Matheu's Barbershop. Todos os direitos reservados.
+      <div class="footer-col">
+        <h4>Contato e Endereço</h4>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511996681789" target="_blank">(11) 99668-1789</a></p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=R.+Vito+Pedro+Dell'Antônia,+85,+Mauá" target="_blank"
+            >R. Vito Pedro Dell'Antônia, 85, Mauá - SP, 09310-070</a
+          >
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <p>Segunda a Sexta: 08:00 - 20:00</p>
+        <p>Sábado: 08:00 - 18:00</p>
+        <p>Domingo: Fechado</p>
+      </div>
+      <div class="footer-col">
+        <h4>Siga-nos</h4>
+        <a href="https://www.instagram.com/matheussbarbershop" target="_blank" class="social-icon"
+          ><i class="fab fa-instagram insta-icon"></i
+        ></a>
       </div>
     </div>
+    <div class="copyright">&copy; 2025 Matheu's Barbershop. Todos os direitos reservados.</div>
   </footer>
 
- <script src="script.js"></script>
 </body>
 </html>

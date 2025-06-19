@@ -2,22 +2,24 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matheu's Barbershop - Estilo e Tradição em Mauá</title>
-  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba e um ambiente de primeira.">
+  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop." />
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fruktur:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Roboto&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <header id="header">
+  <header>
     <div class="container">
       <a href="#" class="logo">
-        <img src="https://placehold.co/150x50/1a1a1a/D4AF37?text=Matheu's" alt="Logotipo Matheu's Barbershop" />
+        <img src="https://placehold.co/150x50/1a1a1a/D4AF37?text=Matheu's" alt="Logo Matheu's Barbershop" />
       </a>
       <nav>
+        <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
+        <a href="#horarios">Horários</a>
         <a href="#equipe">Equipe</a>
         <a href="#galeria">Galeria</a>
         <a href="#contato">Contato</a>
@@ -27,83 +29,154 @@
   </header>
 
   <main>
-    <section id="sobre" class="fade-section">
-      <div class="container sobre-container">
+    <!-- Sobre - Foto e texto -->
+    <section id="sobre" class="fade-section container">
+      <div class="sobre-content">
         <div class="foto-dono">
-          <img src="https://placehold.co/300x300/1a1a1a/fff?text=Matheus" alt="Foto do dono Matheus" />
+          <img src="https://placehold.co/250x250/1a1a1a/D4AF37?text=Matheus" alt="Foto do Matheus - Fundador" />
+        </div>
+        <div class="texto-dono">
+          <p>
+            "Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além de apenas abrir um negócio.
+            Eu queria criar um ponto de encontro, um lugar onde cada cliente se sentisse em casa no momento em que passasse pela porta.
+          </p>
+          <p>
+            Para nós, um corte de cabelo ou uma barba bem-feita são o resultado final, mas a jornada até lá é o que realmente importa.
+            Acreditamos que o verdadeiro valor do nosso trabalho está no atendimento de excelência e na relação de confiança que construímos.
+            Cada pessoa que senta em nossas cadeiras não é apenas mais um cliente; é um amigo que nos confia seu estilo e seu tempo. E nós levamos essa responsabilidade muito a sério.
+          </p>
+          <p>
+            Por isso, investimos em um ambiente de alta qualidade, pensado em cada detalhe para ser o seu refúgio da correria.
+            Um espaço limpo, confortável e com uma energia boa, onde você pode relaxar, ter uma boa conversa e, claro, sair com o visual renovado e a autoestima lá em cima.
+          </p>
+          <p>
+            A Matheu's Barbershop é a soma da nossa paixão pela barbearia e do respeito que temos por você. Seja sempre bem-vindo."
+          </p>
+          <p><strong>– Matheus, Fundador da Matheu's Barbershop</strong></p>
         </div>
       </div>
     </section>
 
-    <section id="servicos" class="fade-section">
-      <div class="container">
-        <h2 class="titulo-secao">Nossos Serviços</h2>
-        <div class="servicos-grid">
-          <div class="servico-item"><h3>Corte</h3><span class="preco">R$ 40,00</span></div>
-          <div class="servico-item"><h3>Cabelo e Barba</h3><span class="preco">R$ 65,00</span></div>
-          <div class="servico-item"><h3>Barba</h3><span class="preco">R$ 25,00</span></div>
-          <div class="servico-item"><h3>Sobrancelha</h3><span class="preco">R$ 10,00</span></div>
-          <div class="servico-item"><h3>Alisamento</h3><span class="preco">R$ 25,00</span></div>
-          <div class="servico-item"><h3>Cabelo Afro</h3><span class="preco">R$ 30,00</span></div>
-          <div class="servico-item"><h3>Luzes</h3><span class="preco">R$ 45 - R$ 60</span></div>
-          <div class="servico-item"><h3>Pézinho</h3><span class="preco">R$ 10,00</span></div>
+    <!-- Serviços -->
+    <section id="servicos" class="fade-section container">
+      <h2 class="titulo-secao">Nossos Serviços</h2>
+      <div class="servicos-grid">
+        <!-- Cada serviço é um label para o checkbox para facilitar clique -->
+        <label class="servico-item" data-valor="40">
+          <input type="checkbox" name="servicos" value="Corte" />
+          Corte <span class="preco">R$ 40,00</span>
+        </label>
+        <label class="servico-item" data-valor="65">
+          <input type="checkbox" name="servicos" value="Cabelo e Barba" />
+          Cabelo e Barba <span class="preco">R$ 65,00</span>
+        </label>
+        <label class="servico-item" data-valor="25">
+          <input type="checkbox" name="servicos" value="Barba" />
+          Barba <span class="preco">R$ 25,00</span>
+        </label>
+        <label class="servico-item" data-valor="10">
+          <input type="checkbox" name="servicos" value="Sobrancelha" />
+          Sobrancelha <span class="preco">R$ 10,00</span>
+        </label>
+        <label class="servico-item" data-valor="25">
+          <input type="checkbox" name="servicos" value="Alisamento" />
+          Alisamento <span class="preco">R$ 25,00</span>
+        </label>
+        <label class="servico-item" data-valor="30">
+          <input type="checkbox" name="servicos" value="Cabelo Afro" />
+          Cabelo Afro <span class="preco">R$ 30,00</span>
+        </label>
+        <label class="servico-item" data-valor="45">
+          <input type="checkbox" name="servicos" value="Luzes" />
+          Luzes <span class="preco">R$ 45,00 - R$ 60,00</span>
+        </label>
+        <label class="servico-item" data-valor="10">
+          <input type="checkbox" name="servicos" value="Pézinho" />
+          Pézinho <span class="preco">R$ 10,00</span>
+        </label>
+      </div>
+      <div id="resumo-servicos">
+        <h3>Serviços selecionados:</h3>
+        <ul id="lista-servicos"></ul>
+        <p><strong>Total: R$ <span id="total-servicos">0,00</span></strong></p>
+      </div>
+    </section>
+
+    <!-- Horários - novo, em destaque -->
+    <section id="horarios" class="fade-section container">
+      <h2 class="titulo-secao">Horários de Funcionamento</h2>
+      <div class="horarios-texto">
+        <p>Segunda a Sexta: 08:00 - 20:00</p>
+        <p>Sábado: 08:00 - 18:00</p>
+        <p>Domingo: Fechado</p>
+      </div>
+    </section>
+
+    <!-- Equipe -->
+    <section id="equipe" class="fade-section container">
+      <h2 class="titulo-secao">Nossa Equipe</h2>
+      <div class="equipe-grid">
+        <div class="membro">
+          <img src="https://placehold.co/300x300/e0e0e0/333?text=Matheus" alt="Foto do Barbeiro Matheus" />
+          <h3>Matheus</h3>
+        </div>
+        <div class="membro">
+          <img src="https://placehold.co/300x300/e0e0e0/333?text=Lyon" alt="Foto do Barbeiro Lyon" />
+          <h3>Lyon</h3>
+        </div>
+        <div class="membro">
+          <img src="https://placehold.co/300x300/e0e0e0/333?text=Eduardo" alt="Foto do Barbeiro Eduardo" />
+          <h3>Eduardo</h3>
+        </div>
+        <div class="membro">
+          <img src="https://placehold.co/300x300/e0e0e0/333?text=Kyan" alt="Foto do Barbeiro Kyan" />
+          <h3>Kyan</h3>
         </div>
       </div>
     </section>
 
-    <section id="equipe" class="fade-section">
-      <div class="container">
-        <h2 class="titulo-secao">Nossa Equipe</h2>
-        <div class="equipe-grid">
-          <div class="membro">
-            <img src="https://placehold.co/300x300/1a1a1a/fff?text=Matheus" alt="Matheus" />
-            <h3>Matheus</h3>
-          </div>
-          <div class="membro">
-            <img src="https://placehold.co/300x300/1a1a1a/fff?text=Lyon" alt="Lyon" />
-            <h3>Lyon</h3>
-          </div>
-          <div class="membro">
-            <img src="https://placehold.co/300x300/1a1a1a/fff?text=Eduardo" alt="Eduardo" />
-            <h3>Eduardo</h3>
-          </div>
-          <div class="membro">
-            <img src="https://placehold.co/300x300/1a1a1a/fff?text=Kyan" alt="Kyan" />
-            <h3>Kyan</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria" class="fade-section">
-      <div class="container">
-        <h2 class="titulo-secao">Galeria de Clientes</h2>
-        <div class="galeria-grid">
-          <!-- Coloque fotos e vídeos aqui -->
-        </div>
-      </div>
-    </section>
-
-    <section id="avaliacoes" class="fade-section">
-      <div class="container">
-        <h2 class="titulo-secao">O Que Dizem Nossos Clientes</h2>
-        <div class="avaliacoes-grid">
-          <div class="avaliacao-card">
-            <div class="estrelas">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Atendimento impecável e o corte ficou exatamente como eu pedi."</p>
-            <h4>- João P.</h4>
-          </div>
-        </div>
+    <!-- Galeria -->
+    <section id="galeria" class="fade-section container">
+      <h2 class="titulo-secao">Galeria de Clientes</h2>
+      <div class="galeria-grid">
+        <!-- Imagens placeholder -->
+        <img src="https://placehold.co/400x400/ccc/333?text=Corte+1" alt="Foto de corte de cabelo de cliente" />
+        <img src="https://placehold.co/400x400/ccc/333?text=Corte+2" alt="Foto de corte de cabelo de cliente" />
+        <img src="https://placehold.co/400x400/ccc/333?text=Corte+3" alt="Foto de corte de cabelo de cliente" />
+        <img src="https://placehold.co/400x400/ccc/333?text=Barba+1" alt="Foto de barba de cliente" />
+        <img src="https://placehold.co/400x400/ccc/333?text=Corte+4" alt="Foto de corte de cabelo de cliente" />
+        <img src="https://placehold.co/400x400/ccc/333?text=Corte+5" alt="Foto de corte de cabelo de cliente" />
       </div>
     </section>
   </main>
 
   <footer id="contato">
-    <div class="container">
-      <p>&copy; 2025 Matheu's Barbershop. Todos os direitos reservados.</p>
+    <div class="container footer-grid">
+      <div>
+        <h3>Matheu's Barbershop</h3>
+        <p>Onde o Estilo Clássico Encontra a Atitude Moderna.</p>
+      </div>
+      <div>
+        <h4>Contato e Endereço</h4>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/5511996681789" target="_blank" rel="noopener noreferrer">(11) 99668-1789</a>
+        </p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=R.+Vito+Pedro+Dell'Antônia,+85,+Mauá" target="_blank" rel="noopener noreferrer">
+            R. Vito Pedro Dell'Antônia, 85, Mauá - SP, 09310-070
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Siga-nos</h4>
+        <a href="https://www.instagram.com/matheussbarbershop" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+        </a>
+      </div>
     </div>
+    <div class="copyright">&copy; 2025 Matheu's Barbershop. Todos os direitos reservados.</div>
   </footer>
 
   <script src="script.js"></script>

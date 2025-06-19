@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Serviços selecionados e soma
+  // Seleção dos serviços e soma
   const servicos = document.querySelectorAll('.servico-item');
   const listaServicos = document.getElementById('lista-servicos');
   const totalSpan = document.getElementById('total');
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const nome = btn.textContent.split(' — ')[0];
       const preco = parseFloat(btn.dataset.preco);
 
-      // Alternar seleção
       if (btn.classList.contains('selected')) {
         btn.classList.remove('selected');
         selecionados = selecionados.filter((s) => s.nome !== nome);
@@ -29,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let soma = 0;
     selecionados.forEach(({ nome, preco }) => {
       const li = document.createElement('li');
-      li.textContent = nome + ' - R$ ' + preco.toFixed(2);
+      li.textContent = `${nome} — R$ ${preco.toFixed(2)}`;
       listaServicos.appendChild(li);
       soma += preco;
     });
     totalSpan.textContent = soma.toFixed(2);
   }
 
-  // Animação de crescimento do título conforme scroll
+  // Animação para crescer o título conforme scroll
   const titulosAnimados = document.querySelectorAll('.titulo-animado');
   const crescerTitulo = () => {
     titulosAnimados.forEach((titulo) => {
@@ -52,3 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', crescerTitulo);
   crescerTitulo();
 });
+

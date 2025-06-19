@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Sobrancelha - R$ 10': 10,
     'Alisamento - R$ 25': 25,
     'Cabelo Afro - R$ 30': 30,
-    'Luzes - R$ 45 a R$ 60': 45, // usamos o menor valor
+    'Luzes - R$ 45 a R$ 60': 45,
     'Pezinho - R$ 10': 10
   };
 
@@ -54,4 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   titulos.forEach(titulo => observer.observe(titulo));
 });
+
 

@@ -26,17 +26,18 @@ body {
   color: var(--cinza-escuro);
 }
 
+/* Limita a largura do conteúdo para evitar rolagem horizontal */
 body > * {
-  max-width: 1200px;
+  max-width: 1000px; /* diminui o max-width para evitar scroll horizontal */
   width: 100%;
   background-color: var(--branco);
-  margin: 30px 50px;
+  margin: 30px 40px;
   border-left: 15px solid var(--preto);
   border-right: 15px solid var(--preto);
   border-top: 5px solid var(--dourado);
   border-bottom: 5px solid var(--dourado);
   border-radius: 12px;
-  padding: 30px 50px 50px 50px;
+  padding: 30px 40px 50px 40px;
   box-shadow: 0 0 25px var(--dourado);
   position: relative;
 }
@@ -50,21 +51,21 @@ body > * {
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 30px;
   border-radius: 12px 12px 0 0;
-  gap: 50px;
+  gap: 40px;
 }
 
 /* Logo redondo grande */
 .logo-simulado {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   background-color: var(--preto);
   border: 5px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,16 +81,16 @@ body > * {
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  gap: 60px;
+  gap: 55px;
 }
 
 .menu a {
   color: var(--dourado);
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   text-decoration: none;
   background-color: var(--cinza-claro);
-  padding: 15px 30px;
+  padding: 18px 38px;
   border-radius: 50px;
   box-shadow: 0 0 15px var(--dourado);
   transition: background-color 0.3s ease, transform 0.25s ease;
@@ -100,7 +101,7 @@ body > * {
 .menu a:focus {
   background-color: var(--dourado);
   color: var(--preto);
-  transform: scale(1.1);
+  transform: scale(1.15);
   outline: none;
 }
 
@@ -108,7 +109,7 @@ body > * {
 .barber-pole {
   position: fixed;
   top: 15px;
-  right: 50px;
+  right: 40px;
   width: 50px;
   height: 160px;
   border-radius: 25px;
@@ -136,7 +137,7 @@ body > * {
 /* ========== Seções - uma página por seção ========== */
 .section-padrao {
   min-height: 100vh;
-  padding: 80px 40px 60px 40px;
+  padding: 80px 30px 60px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,16 +146,16 @@ body > * {
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
   margin-bottom: 70px;
-  scroll-margin-top: 100px; /* para não esconder ao clicar no menu */
+  scroll-margin-top: 100px;
 }
 
 /* Títulos amarelos, grandes, centralizados */
 .titulo-secao {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 4rem;
+  font-size: 3.8rem;
   color: var(--amarelo-titulo);
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: center;
   user-select: none;
   transition: transform 0.3s ease;
@@ -162,7 +163,7 @@ body > * {
 
 /* Cresce suavemente ao passar o mouse */
 .titulo-secao:hover {
-  transform: scale(1.15);
+  transform: scale(1.12);
   cursor: pointer;
 }
 
@@ -177,7 +178,7 @@ body > * {
     opacity: 0;
   }
   to {
-    transform: scale(1.15);
+    transform: scale(1.12);
     opacity: 1;
   }
 }
@@ -185,8 +186,8 @@ body > * {
 /* ========== Sobre ========== */
 .sobre-content {
   display: flex;
-  gap: 50px;
-  max-width: 1000px;
+  gap: 40px;
+  max-width: 900px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -196,7 +197,7 @@ body > * {
 }
 
 .texto-sobre {
-  flex: 1 1 550px;
+  flex: 1 1 500px;
   text-align: justify;
 }
 
@@ -211,8 +212,8 @@ body > * {
 
 /* Foto do dono em círculo e com sombra dourada */
 .foto-dono-quadro {
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   border: 6px solid var(--dourado);
   background-color: var(--preto);
@@ -226,23 +227,23 @@ body > * {
 /* ========== Serviços ========== */
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
 }
 
 .servico-item button {
   width: 100%;
-  padding: 22px 0;
-  font-size: 1.5rem;
+  padding: 24px 0;
+  font-size: 1.6rem;
   font-weight: 900;
   border-radius: 35px;
   border: 4px solid var(--dourado);
   background-color: var(--branco);
   color: var(--preto);
   cursor: pointer;
-  box-shadow: 0 0 10px var(--dourado);
+  box-shadow: 0 0 12px var(--dourado);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
 }
@@ -251,14 +252,14 @@ body > * {
 .servico-item button.selecionado {
   background-color: var(--dourado);
   color: var(--preto);
-  box-shadow: 0 0 25px var(--dourado);
-  transform: scale(1.1);
+  box-shadow: 0 0 30px var(--dourado);
+  transform: scale(1.12);
 }
 
 /* Soma total serviços selecionados */
 .soma-servicos {
-  margin-top: 50px;
-  font-size: 2.2rem;
+  margin-top: 60px;
+  font-size: 2.4rem;
   font-weight: 900;
   color: var(--amarelo-titulo);
   text-align: center;
@@ -270,8 +271,8 @@ body > * {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
-  max-width: 1100px;
+  gap: 45px;
+  max-width: 1050px;
 }
 
 .membro {
@@ -279,7 +280,7 @@ body > * {
   border: 5px solid var(--dourado);
   border-radius: 20px;
   width: 240px;
-  padding: 25px 20px 35px 20px;
+  padding: 28px 20px 38px 20px;
   box-shadow: 0 0 25px var(--dourado);
   text-align: center;
   display: flex;
@@ -296,14 +297,14 @@ body > * {
   background-color: var(--preto);
   background-size: cover;
   background-position: center;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .membro h3 {
   font-weight: 900;
   font-size: 1.7rem;
   color: var(--amarelo-titulo);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .membro p.comentario {
@@ -314,12 +315,11 @@ body > * {
 
 /* Centraliza o dono Matheus abaixo dos outros */
 .membro.dono {
-  margin-top: 40px;
+  margin-top: 45px;
   align-self: center;
 }
 
 /* ========== Galeria ========== */
-/* Grid fixa para evitar rolagem horizontal */
 .galeria-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -373,12 +373,12 @@ body > * {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin-top: 15px;
 }
 
 .social-icons a {
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: var(--dourado);
   transition: color 0.3s ease;
   user-select: none;
@@ -403,6 +403,11 @@ footer {
 
 /* ========== Responsividade ========== */
 @media (max-width: 1100px) {
+  body > * {
+    margin: 30px 15px;
+    padding: 30px 20px 45px 20px;
+  }
+
   .sobre-content {
     flex-direction: column;
     align-items: center;
@@ -423,7 +428,7 @@ footer {
   }
 
   .galeria-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
     gap: 20px;
   }
@@ -431,8 +436,8 @@ footer {
 
 @media (max-width: 650px) {
   body > * {
-    margin: 20px 15px;
-    padding: 25px 25px 35px 25px;
+    margin: 15px 10px;
+    padding: 20px 15px 35px 15px;
   }
 
   .container-header {
@@ -471,9 +476,8 @@ footer {
     width: 100%;
   }
 
-  .galeria-item {
-    aspect-ratio: 1/1;
-    height: auto;
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .social-icons a {

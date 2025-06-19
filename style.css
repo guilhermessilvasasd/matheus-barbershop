@@ -13,8 +13,8 @@
   --dourado: #d4af37;
   --branco: #ffffff;
   --cinza-claro: #f5f5f5;
-  --amarelo-titulo: #ffcc00;
   --cinza-escuro: #222222;
+  --amarelo-titulo: #ffcc00;
 }
 
 body {
@@ -29,13 +29,14 @@ body {
   max-width: 1140px;
   width: 100%;
   background-color: var(--branco);
-  margin: 20px 10px;
-  padding: 30px;
+  margin: 10px;
+  padding: 20px;
   border: 1px solid var(--cinza-claro);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
+/* ================= CABEÇALHO ================= */
 .container-header {
   background-color: var(--preto);
   display: flex;
@@ -43,19 +44,19 @@ body {
   justify-content: space-between;
   padding: 12px 24px;
   border-radius: 8px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 .logo-simulado {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   background-color: var(--preto);
   border: 2px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +64,7 @@ body {
 
 .menu {
   display: flex;
-  gap: 18px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -73,10 +74,10 @@ body {
   background-color: transparent;
   font-weight: 600;
   text-decoration: none;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border: 1px solid var(--dourado);
-  border-radius: 6px;
-  font-size: 0.95rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -85,22 +86,24 @@ body {
   color: var(--preto);
 }
 
+/* Animação barber pole */
+@keyframes spin {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
 .barber-pole {
-  width: 12px;
+  width: 14px;
   height: 60px;
   background: repeating-linear-gradient(45deg, red 0 6px, white 6px 12px, blue 12px 18px);
   border-radius: 12px;
-  animation: rotatePole 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes rotatePole {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
+/* ================= SEÇÕES ================= */
 .section-padrao {
-  padding: 40px 20px;
-  margin-bottom: 50px;
+  padding: 30px 20px;
+  margin-bottom: 40px;
   background-color: var(--branco);
   border-radius: 8px;
   border: 1px solid var(--cinza-claro);
@@ -108,13 +111,22 @@ body {
 
 .titulo-secao {
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   color: var(--preto);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-align: center;
   font-family: 'Arial Black', Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
+.titulo-secao.crescendo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= SOBRE ================= */
 .texto-sobre p {
   margin-bottom: 15px;
   color: var(--preto);
@@ -138,26 +150,27 @@ body {
   background-color: var(--cinza-claro);
   background-size: cover;
   background-position: center;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
-/* Serviços */
+/* ================= SERVIÇOS ================= */
 .servicos-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
-  justify-content: center;
+  margin-top: 20px;
 }
 
 .servico-item button {
-  background-color: var(--preto);
-  color: var(--branco);
-  border: 1px solid var(--dourado);
-  padding: 10px 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--cinza-claro);
+  border: 1px solid var(--cinza-escuro);
   border-radius: 6px;
-  cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  color: var(--preto);
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .servico-item button:hover {
@@ -165,25 +178,27 @@ body {
   color: var(--preto);
 }
 
-.soma-servicos {
-  margin-top: 25px;
-  font-weight: 700;
-  color: var(--preto);
-  text-align: center;
-  font-size: 1.2rem;
+.servico-item button.selecionado {
+  background-color: var(--dourado);
 }
 
-/* Equipe */
+.soma-servicos {
+  margin-top: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ================= EQUIPE ================= */
 .equipe-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
-  justify-content: center;
+  justify-items: center;
+  margin-top: 20px;
 }
 
 .membro {
   text-align: center;
-  max-width: 180px;
 }
 
 .membro-foto {
@@ -191,6 +206,7 @@ body {
   height: 180px;
   border-radius: 50%;
   border: 3px solid var(--dourado);
+  background-color: var(--cinza-claro);
   background-size: cover;
   background-position: center;
   margin-bottom: 10px;
@@ -198,59 +214,57 @@ body {
 
 .comentario {
   font-size: 0.9rem;
-  color: var(--preto);
+  color: var(--cinza-escuro);
 }
 
-/* Galeria */
+/* ================= GALERIA ================= */
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
+  margin-top: 20px;
 }
 
 .galeria-item {
   width: 100%;
-  height: 140px;
+  aspect-ratio: 1/1;
   background-color: var(--cinza-claro);
+  border: 2px solid var(--dourado);
+  border-radius: 8px;
   background-size: cover;
   background-position: center;
-  border-radius: 6px;
 }
 
-/* Contato */
+/* ================= CONTATO ================= */
 .endereco-contato {
-  font-size: 1.1rem;
-  color: var(--preto);
-  margin: 10px 0;
   text-align: center;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .link-maps {
   color: var(--preto);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--dourado);
-}
-
-.link-maps:hover {
-  color: var(--dourado);
+  text-decoration: underline;
 }
 
 .social-icons {
-  margin-top: 16px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.8rem;
+  margin-top: 10px;
 }
 
 .social-icons a {
-  margin: 0 10px;
   color: var(--preto);
-  font-size: 1.5rem;
-  transition: color 0.2s ease;
+  transition: 0.3s ease;
 }
 
 .social-icons a:hover {
   color: var(--dourado);
 }
 
+/* ================= RODAPÉ ================= */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -261,11 +275,19 @@ footer {
   margin-top: 30px;
 }
 
-/* Responsivo */
+/* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
   .container-header {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+
+  .logo-simulado {
+    width: 60px;
+    height: 60px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
   }
 
   .menu {
@@ -273,20 +295,14 @@ footer {
     flex-wrap: wrap;
   }
 
-  .logo-simulado {
-    width: 70px;
-    height: 70px;
-    font-size: 0.75rem;
-    margin-bottom: 10px;
-  }
-
-  .foto-dono-quadro,
-  .membro-foto {
+  .foto-dono-quadro {
     width: 160px;
     height: 160px;
   }
 
-  .galeria-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  .membro-foto {
+    width: 140px;
+    height: 140px;
   }
 }
+

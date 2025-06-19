@@ -28,16 +28,16 @@ body {
 }
 
 .page-wrapper {
-  max-width: 1000px;
+  max-width: 950px;
   width: 100%;
   background-color: var(--branco);
-  margin: 30px 40px;
+  margin: 30px 20px;
   border-left: 15px solid var(--preto);
   border-right: 15px solid var(--preto);
   border-top: 5px solid var(--dourado);
   border-bottom: 5px solid var(--dourado);
   border-radius: 12px;
-  padding: 30px 40px 50px 40px;
+  padding: 30px 30px 50px 30px;
   box-shadow: 0 0 25px var(--dourado);
   position: relative;
 }
@@ -51,9 +51,9 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 25px;
   border-radius: 12px 12px 0 0;
-  gap: 40px;
+  gap: 30px;
 }
 
 /* Logo redondo grande */
@@ -81,16 +81,16 @@ body {
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  gap: 55px;
+  gap: 60px;
 }
 
 .menu a {
   color: var(--dourado);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-decoration: none;
   background-color: var(--cinza-claro);
-  padding: 18px 38px;
+  padding: 18px 42px;
   border-radius: 50px;
   box-shadow: 0 0 15px var(--dourado);
   transition: background-color 0.3s ease, transform 0.25s ease;
@@ -110,17 +110,17 @@ body {
 .barber-pole {
   position: fixed;
   top: 25px;
-  right: 40px;
-  width: 30px;
-  height: 130px;
-  border-radius: 25px;
+  right: 30px;
+  width: 20px;
+  height: 110px;
+  border-radius: 20px;
   background: repeating-linear-gradient(
     45deg,
-    red 0 10px,
-    white 10px 20px,
-    blue 20px 30px
+    red 0 8px,
+    white 8px 16px,
+    blue 16px 24px
   );
-  box-shadow: 0 0 8px var(--dourado);
+  box-shadow: 0 0 6px var(--dourado);
   animation: spiral-background 5s linear infinite;
   z-index: 1100;
 }
@@ -131,14 +131,14 @@ body {
     background-position: 0 0;
   }
   100% {
-    background-position: 90px 90px;
+    background-position: 70px 70px;
   }
 }
 
 /* ========== Seções - uma página por seção ========== */
 .section-padrao {
   min-height: 100vh;
-  padding: 80px 30px 60px 30px;
+  padding: 80px 25px 60px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,7 +154,7 @@ body {
 .titulo-secao {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 3.8rem;
+  font-size: 3.4rem;
   color: var(--amarelo-titulo);
   margin-bottom: 50px;
   text-align: center;
@@ -187,7 +187,7 @@ body {
 /* ========== Sobre ========== */
 .sobre-content {
   display: flex;
-  gap: 40px;
+  gap: 35px;
   max-width: 900px;
   flex-wrap: wrap;
   justify-content: center;
@@ -228,16 +228,16 @@ body {
 /* ========== Serviços ========== */
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 26px;
   width: 100%;
   max-width: 900px;
 }
 
 .servico-item button {
   width: 100%;
-  padding: 24px 0;
-  font-size: 1.6rem;
+  padding: 14px 0;
+  font-size: 1.3rem;
   font-weight: 900;
   border-radius: 35px;
   border: 4px solid var(--dourado);
@@ -259,8 +259,8 @@ body {
 
 /* Soma total serviços selecionados */
 .soma-servicos {
-  margin-top: 60px;
-  font-size: 2.4rem;
+  margin-top: 50px;
+  font-size: 2rem;
   font-weight: 900;
   color: var(--amarelo-titulo);
   text-align: center;
@@ -272,7 +272,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 45px;
+  gap: 38px;
   max-width: 1050px;
 }
 
@@ -280,8 +280,8 @@ body {
   background-color: var(--branco);
   border: 5px solid var(--dourado);
   border-radius: 20px;
-  width: 240px;
-  padding: 28px 20px 38px 20px;
+  width: 220px;
+  padding: 26px 18px 36px 18px;
   box-shadow: 0 0 25px var(--dourado);
   text-align: center;
   display: flex;
@@ -291,205 +291,192 @@ body {
 }
 
 .membro-foto {
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 4px solid var(--dourado);
   background-color: var(--preto);
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 0 15px var(--dourado);
 }
 
 .membro h3 {
+  font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: var(--amarelo-titulo);
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
-.membro p.comentario {
-  font-size: 1.1rem;
+.comentario {
   font-style: italic;
+  font-size: 1rem;
   color: var(--cinza-escuro);
+  text-align: center;
+  line-height: 1.3;
 }
 
-/* Centraliza o dono Matheus abaixo dos outros */
-.membro.dono {
-  margin-top: 45px;
-  align-self: center;
-}
-
-/* ========== Galeria ========== */
+/* ========== Galeria Clientes ========== */
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 25px;
-  max-width: 1050px;
-  margin-top: 10px;
-  user-select: none;
+  max-width: 900px;
+  justify-items: center;
 }
 
 .galeria-item {
-  aspect-ratio: 1 / 1;
+  width: 220px;
+  height: 220px;
   background-color: var(--preto);
-  border: 6px solid var(--dourado);
-  border-radius: 20px;
-  box-shadow: 0 0 25px var(--dourado);
+  border: 4px solid var(--dourado);
+  border-radius: 10px;
+  box-shadow: 0 0 18px var(--dourado);
+  user-select: none;
+  background-image: url('https://via.placeholder.com/220x220?text=Cliente');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.07);
+  cursor: pointer;
 }
 
 /* ========== Contato ========== */
 #contato {
-  max-width: 700px;
+  max-width: 900px;
   text-align: center;
-  font-size: 1.3rem;
-  color: var(--cinza-escuro);
-  user-select: none;
-  margin: 0 auto;
 }
 
-#contato .endereco-contato {
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-#contato .endereco-contato a {
-  color: var(--dourado);
-  font-weight: 900;
-  font-size: 1.3rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-#contato .endereco-contato a:hover,
-#contato .endereco-contato a:focus {
-  color: #fff;
-  text-decoration: underline;
-}
-
-#contato .galeria-veneza a {
+.endereco-contato {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  margin: 10px 0;
+  color: var(--cinza-escuro);
+  user-select: text;
 }
 
+.link-maps {
+  color: var(--preto);
+  text-decoration: none;
+  border-bottom: 2px solid var(--dourado);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.link-maps:hover,
+.link-maps:focus {
+  color: var(--dourado);
+  border-color: var(--preto);
+  outline: none;
+}
+
+/* Ícones sociais maiores e lado a lado */
 .social-icons {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-top: 15px;
+  gap: 40px;
 }
 
 .social-icons a {
-  font-size: 5.5rem;
-  color: var(--dourado);
+  font-size: 3.2rem;
+  color: var(--preto);
   transition: color 0.3s ease;
-  user-select: none;
 }
 
 .social-icons a:hover,
 .social-icons a:focus {
-  color: #fff;
+  color: var(--dourado);
+  outline: none;
 }
 
 /* ========== Rodapé ========== */
 footer {
-  text-align: center;
+  margin-top: 60px;
+  padding: 25px 0;
   background-color: var(--preto);
   color: var(--dourado);
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 20px 10px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
   border-radius: 0 0 12px 12px;
   user-select: none;
 }
 
-/* ========== Responsividade ========== */
+/* ========== Ajustes responsivos ========== */
 @media (max-width: 1100px) {
   .page-wrapper {
-    margin: 30px 20px;
-  }
-
-  .sobre-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .foto-dono-quadro {
-    margin-top: 25px;
-  }
-
-  .servicos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-
-  .equipe-grid {
-    gap: 35px;
-    flex-wrap: wrap;
-  }
-
-  .galeria-grid {
-    grid-template-columns: repeat(3, 1fr);
+    margin: 20px 10px;
     max-width: 100%;
-    gap: 20px;
+    border-left-width: 10px;
+    border-right-width: 10px;
   }
-}
-
-@media (max-width: 650px) {
-  .page-wrapper {
-    margin: 15px 10px;
-    padding: 20px 15px 40px 15px;
-  }
-
   .container-header {
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px 20px;
+    padding: 15px 15px;
+    gap: 15px;
   }
-
   .logo-simulado {
-    width: 100px;
-    height: 100px;
-    font-size: 1rem;
+    width: 110px;
+    height: 110px;
+    font-size: 1.2rem;
   }
-
   .menu {
     gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
   }
-
   .menu a {
-    font-size: 1.5rem;
-    padding: 15px 30px;
+    font-size: 1.3rem;
+    padding: 12px 28px;
   }
-
-  .servicos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .servico-item button {
-    font-size: 1.5rem;
-    padding: 18px 0;
-  }
-
-  .membro {
-    width: 100%;
-  }
-
-  .galeria-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .social-icons a {
-    font-size: 4rem;
+  .barber-pole {
+    width: 15px;
+    height: 90px;
+    top: 15px;
+    right: 20px;
   }
 }
 
-/* Botões com foco acessível */
-button:focus-visible,
-.menu a:focus-visible {
-  outline: 3px solid var(--amarelo-titulo);
-  outline-offset: 3px;
+@media (max-width: 600px) {
+  .sobre-content {
+    flex-direction: column;
+  }
+  .foto-dono-quadro {
+    margin: 20px auto 0 auto;
+  }
+  .servicos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+  }
+  .servico-item button {
+    font-size: 1.1rem;
+    padding: 14px 0;
+  }
+  .equipe-grid {
+    gap: 25px;
+  }
+  .membro {
+    width: 160px;
+    padding: 16px 12px 26px 12px;
+  }
+  .membro-foto {
+    width: 140px;
+    height: 140px;
+  }
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  .galeria-item {
+    width: 140px;
+    height: 140px;
+  }
+  .social-icons {
+    gap: 25px;
+  }
+  .social-icons a {
+    font-size: 2.4rem;
+  }
 }

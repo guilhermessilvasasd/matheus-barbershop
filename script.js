@@ -1,54 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Seleção dos serviços e soma
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("Site da Matheu's Barbershop carregado.");
+
+  const titulos = document.querySelectorAll('.titulo-animado');
   const servicos = document.querySelectorAll('.servico-item');
-  const listaServicos = document.getElementById('lista-servicos');
+  const lista = document.getElementById('lista-servicos');
   const totalSpan = document.getElementById('total');
+  let total = 0;
 
-  let selecionados = [];
-
-  servicos.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const nome = btn.textContent.split(' — ')[0];
-      const preco = parseFloat(btn.dataset.preco);
-
-      if (btn.classList.contains('selected')) {
-        btn.classList.remove('selected');
-        selecionados = selecionados.filter((s) => s.nome !== nome);
+  window.addEventListener('scroll', () => {
+    titulos.forEach(titulo => {
+      const rect = titulo.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top <= window.innerHeight) {
+        titulo.classList.add('crescendo');
       } else {
-        btn.classList.add('selected');
-        selecionados.push({ nome, preco });
+        titulo.classList.remove('crescendo');
       }
-
-      atualizarResumo();
     });
   });
 
-  function atualizarResumo() {
-    listaServicos.innerHTML = '';
-    let soma = 0;
-    selecionados.forEach(({ nome, preco }) => {
+  servicos.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const preco = parseFloat(btn.getAttribute('data-preco'));
+      total += preco;
       const li = document.createElement('li');
-      li.textContent = `${nome} — R$ ${preco.toFixed(2)}`;
-      listaServicos.appendChild(li);
-      soma += preco;
+      li.textContent = btn.textContent;
+      lista.appendChild(li);
+      totalSpan.textContent = total.toFixed(2);
     });
-    totalSpan.textContent = soma.toFixed(2);
-  }
-
-  // Animação para crescer o título conforme scroll
-  const titulosAnimados = document.querySelectorAll('.titulo-animado');
-  const crescerTitulo = () => {
-    titulosAnimados.forEach((titulo) => {
-      const rect = titulo.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        titulo.classList.add('grow');
-      } else {
-        titulo.classList.remove('grow');
-      }
-    });
-  };
-
-  window.addEventListener('scroll', crescerTitulo);
-  crescerTitulo();
+  });
 });
-

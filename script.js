@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Animação de crescimento do título quando seção entra na viewport
+  // Títulos crescendo ao entrar na viewport
   const titulos = document.querySelectorAll('.titulo-secao');
 
   const observer = new IntersectionObserver(entries => {

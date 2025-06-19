@@ -1,37 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log("Site da Matheu's Barbershop carregado.");
 
-  // Efeito fade-in nas seções quando entram na tela
+  // Fade das seções ao rolar
   const sections = document.querySelectorAll('.fade-section');
-
-  function checkSections() {
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < triggerBottom) {
-        section.classList.add('visible');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-  }
+  }, { threshold: 0.1 });
 
-  window.addEventListener('scroll', checkSections);
-  checkSections();
+  sections.forEach(section => observer.observe(section));
 
-  // Barber pole girando automaticamente (já no CSS)
+  // Brincadeira ao clicar em qualquer canto
+  document.body.addEventListener('click', function(event) {
+    // Se clicar em um link ou botão, ignora
+    if (event.target.tagName === 'A' || event.target.closest('a')) return;
 
-  // Brincadeira: clicar em qualquer canto mostra convite
-  function conviteBrincadeira() {
-    alert("Quer ficar bonito para aquela balada? Vem pra Matheu's Barbershop!");
-  }
+    const frases = [
+      "Que tal ficar na régua pra próxima balada? 😎",
+      "Hora de renovar o visual, parceiro!",
+      "Já imaginou seu corte brilhando na night? 💈🔥",
+      "Clique no Whats e garanta o estilo!"
+    ];
+    const aleatorio = frases[Math.floor(Math.random() * frases.length)];
 
-  ['top-left', 'top-right', 'bottom-left', 'bottom-right'].forEach(corner => {
-    const div = document.createElement('div');
-    div.classList.add('click-corner', corner);
-    if(corner.includes('top')) div.style.top = '0';
-    else div.style.bottom = '0';
-    if(corner.includes('left')) div.style.left = '0';
-    else div.style.right = '0';
-    div.addEventListener('click', conviteBrincadeira);
-    document.body.appendChild(div);
+    // Mostra a mensagem de forma divertida
+    const msg = document.createElement('div');
+    msg.textContent = aleatorio;
+    msg.style.position = 'fixed';
+    msg.style.bottom = '20px';
+    msg.style.right = '20px';
+    msg.style.background = '#D4AF37';
+    msg.style.color = '#1a1a1a';
+    msg.style.padding = '10px 20px';
+    msg.style.borderRadius = '8px';
+    msg.style.boxShadow = '0 0 10px rgba(0,0,0,0.3)';
+    msg.style.zIndex = '9999';
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+      msg.remove();
+    }, 3000);
   });
 });
+

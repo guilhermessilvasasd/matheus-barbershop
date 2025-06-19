@@ -1,65 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Matheu's Barbershop carregado.");
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Site da Matheu's Barbershop carregado.");
 
-  // Títulos crescem ao entrar em viewport
-  const titulos = document.querySelectorAll(".titulo-secao");
+  const botoesServicos = document.querySelectorAll('.servico-item button');
+  const totalSpan = document.getElementById('total');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("crescendo");
-        } else {
-          entry.target.classList.remove("crescendo");
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  titulos.forEach((titulo) => observer.observe(titulo));
-
-  // Serviços: seleção, destaque e soma
-  const botoesServicos = document.querySelectorAll(".servico-item button");
-  const totalSpan = document.getElementById("total");
-
-  // Valores dos serviços para soma
+  let totalSelecionado = 0;
   const precos = {
-    "Corte - R$ 40": 40,
-    "Cabelo e Barba - R$ 65": 65,
-    "Barba - R$ 25": 25,
-    "Sobrancelha - R$ 10": 10,
-    "Alisamento - R$ 25": 25,
-    "Cabelo Afro - R$ 30": 30,
-    "Luzes - R$ 45 a R$ 60": 45,
-    "Pezinho - R$ 10": 10,
+    'Corte - R$ 40': 40,
+    'Cabelo e Barba - R$ 65': 65,
+    'Barba - R$ 25': 25,
+    'Sobrancelha - R$ 10': 10,
+    'Alisamento - R$ 25': 25,
+    'Cabelo Afro - R$ 30': 30,
+    'Luzes - R$ 45 a R$ 60': 45, // usamos o menor valor
+    'Pezinho - R$ 10': 10
   };
 
   let servicosSelecionados = new Set();
 
-  botoesServicos.forEach((botao) => {
-    botao.addEventListener("click", () => {
+  botoesServicos.forEach(botao => {
+    botao.addEventListener('click', () => {
       const texto = botao.textContent.trim();
+
       if (servicosSelecionados.has(texto)) {
         servicosSelecionados.delete(texto);
-        botao.classList.remove("selecionado");
+        botao.classList.remove('selecionado');
       } else {
         servicosSelecionados.add(texto);
-        botao.classList.add("selecionado");
+        botao.classList.add('selecionado');
       }
-      atualizarTotal();
+
+      totalSelecionado = 0;
+      servicosSelecionados.forEach(item => {
+        totalSelecionado += precos[item] || 0;
+      });
+
+      totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
 
-  function atualizarTotal() {
-    let soma = 0;
-    servicosSelecionados.forEach((servico) => {
-      soma += precos[servico] || 0;
+  // Animação de crescimento do título quando seção entra na viewport
+  const titulos = document.querySelectorAll('.titulo-secao');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('crescendo');
+      } else {
+        entry.target.classList.remove('crescendo');
+      }
     });
-    totalSpan.textContent = soma.toLocaleString("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-  }
+  }, { threshold: 0.6 });
+
+  titulos.forEach(titulo => observer.observe(titulo));
 });
 

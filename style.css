@@ -6,92 +6,93 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Cores principais */
+/* Variáveis cores */
 :root {
   --preto: #000000;
   --dourado: #d4af37;
   --branco: #ffffff;
-  --cinza-claro: #f0f0f0;
+  --cinza-claro: #f5f5f5;
   --amarelo-titulo: #ffcc00;
   --cinza-escuro: #222222;
 }
 
-/* BODY e fundo interno branco entre margens */
+/* Body com margens pretas e fundo branco */
 body {
   background-color: var(--preto);
-  color: var(--cinza-escuro);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 0;
+  color: var(--cinza-escuro);
 }
 
-/* Container central com margens laterais pretas e borda dourada */
 body > * {
   max-width: 1200px;
   width: 100%;
   background-color: var(--branco);
-  margin: 20px 40px;
-  border-left: 10px solid var(--preto);
-  border-right: 10px solid var(--preto);
+  margin: 30px 50px;
+  border-left: 15px solid var(--preto);
+  border-right: 15px solid var(--preto);
   border-top: 5px solid var(--dourado);
   border-bottom: 5px solid var(--dourado);
-  box-shadow: 0 0 20px var(--dourado);
-  padding: 20px 40px 40px 40px;
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 30px 50px 50px 50px;
+  box-shadow: 0 0 25px var(--dourado);
   position: relative;
 }
 
-/* ================= HEADER ================= */
+/* ========== Cabeçalho ========== */
 .container-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: var(--preto);
-  padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.7);
+  background-color: var(--preto);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  border-radius: 12px 12px 0 0;
+  gap: 50px;
 }
 
+/* Logo redondo grande */
 .logo-simulado {
-  width: 130px;
-  height: 130px;
-  background: var(--preto);
+  width: 140px;
+  height: 140px;
+  background-color: var(--preto);
   border: 5px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 900;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   user-select: none;
-  margin-right: 50px;
-  box-shadow: 0 0 10px var(--dourado);
+  box-shadow: 0 0 15px var(--dourado);
+  flex-shrink: 0;
 }
 
+/* Menu centralizado */
 .menu {
   display: flex;
-  gap: 50px;
-  justify-content: center;
   flex-grow: 1;
+  justify-content: center;
+  gap: 60px;
 }
 
 .menu a {
   color: var(--dourado);
+  font-weight: 900;
+  font-size: 1.6rem;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.25rem;
-  padding: 10px 25px;
-  border-radius: 30px;
   background-color: var(--cinza-claro);
-  box-shadow: 0 0 10px rgba(212,175,55,0.7);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--dourado);
+  transition: background-color 0.3s ease, transform 0.25s ease;
   user-select: none;
 }
 
@@ -103,69 +104,71 @@ body > * {
   outline: none;
 }
 
-/* ================= BARBER POLE ================= */
+/* Barber Pole no topo do cabeçalho */
 .barber-pole {
   position: fixed;
-  top: 150px;
-  right: 0;
-  width: 60px;
-  height: 300px;
+  top: 15px;
+  right: 50px;
+  width: 50px;
+  height: 160px;
+  border-radius: 25px;
   background: repeating-linear-gradient(
     45deg,
-    red 0 15px,
-    white 15px 30px,
-    blue 30px 45px
+    red 0 12px,
+    white 12px 24px,
+    blue 24px 36px
   );
-  border-radius: 0 0 0 30px;
-  animation: spiral-spin 7s linear infinite;
   box-shadow: 0 0 12px var(--dourado);
-  z-index: 999;
+  animation: spiral-background 5s linear infinite;
+  z-index: 1100;
 }
 
-/* Efeito espiral (não só rotacionar 360) */
-@keyframes spiral-spin {
+/* Movimento estilo espiral pelo background */
+@keyframes spiral-background {
   0% {
     background-position: 0 0;
   }
   100% {
-    background-position: 360px 360px;
+    background-position: 108px 108px;
   }
 }
 
-/* ================= SEÇÕES ================= */
+/* ========== Seções - uma página por seção ========== */
 .section-padrao {
-  margin: 80px 0;
-  padding: 40px 20px;
-  background-color: var(--branco);
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
-  min-height: 600px;
+  min-height: 100vh;
+  padding: 80px 40px 60px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
+  background-color: var(--branco);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  margin-bottom: 70px;
+  scroll-margin-top: 100px; /* para não esconder ao clicar no menu */
 }
 
-/* TÍTULOS AMARELOS */
+/* Títulos amarelos, grandes, centralizados */
 .titulo-secao {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--amarelo-titulo);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
-  transition: transform 0.3s ease;
   user-select: none;
+  transition: transform 0.3s ease;
 }
 
-/* Cresce ao passar mouse */
+/* Cresce suavemente ao passar o mouse */
 .titulo-secao:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   cursor: pointer;
 }
 
-/* Cresce quando a seção aparece (JS) */
+/* Cresce quando seção entra em viewport */
 .titulo-secao.crescendo {
-  animation: crescer 1s forwards;
+  animation: crescer 0.8s forwards;
 }
 
 @keyframes crescer {
@@ -174,63 +177,73 @@ body > * {
     opacity: 0;
   }
   to {
-    transform: scale(1.2);
+    transform: scale(1.15);
     opacity: 1;
   }
 }
 
-/* SOBRE - texto e foto lado a lado */
+/* ========== Sobre ========== */
 .sobre-content {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   max-width: 1000px;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  color: var(--cinza-escuro);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .texto-sobre {
-  flex: 1 1 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--cinza-escuro);
-  padding-right: 20px;
+  flex: 1 1 550px;
   text-align: justify;
 }
 
-.foto-dono-quadro {
-  flex: 0 1 300px;
-  height: 300px;
-  background-color: var(--preto);
-  border-radius: 50%;
-  border: 6px solid var(--dourado);
-  box-shadow: 0 0 15px var(--dourado);
-  background-image: url(''); /* aqui você pode colocar a foto do dono depois */
-  background-size: cover;
-  background-position: center;
+.assinatura {
+  margin-top: 20px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  font-size: 1.15rem;
+  color: var(--dourado);
 }
 
-/* ================= SERVIÇOS ================= */
+/* Foto do dono em círculo e com sombra dourada */
+.foto-dono-quadro {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 6px solid var(--dourado);
+  background-color: var(--preto);
+  background-image: url('');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 20px var(--dourado);
+  flex-shrink: 0;
+}
+
+/* ========== Serviços ========== */
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
   width: 100%;
+  max-width: 1000px;
 }
 
 .servico-item button {
   width: 100%;
-  padding: 20px 0;
-  font-size: 1.3rem;
-  font-weight: 700;
-  border-radius: 20px;
-  border: 3px solid var(--dourado);
+  padding: 22px 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 35px;
+  border: 4px solid var(--dourado);
   background-color: var(--branco);
   color: var(--preto);
   cursor: pointer;
-  box-shadow: 0 0 8px var(--dourado);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--dourado);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
 }
 
@@ -238,37 +251,37 @@ body > * {
 .servico-item button.selecionado {
   background-color: var(--dourado);
   color: var(--preto);
-  box-shadow: 0 0 20px var(--dourado);
-  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--dourado);
+  transform: scale(1.1);
 }
 
-/* Soma total dos serviços */
+/* Soma total serviços selecionados */
 .soma-servicos {
-  margin-top: 40px;
-  font-size: 1.8rem;
-  font-weight: 800;
+  margin-top: 50px;
+  font-size: 2.2rem;
+  font-weight: 900;
   color: var(--amarelo-titulo);
   text-align: center;
   user-select: none;
 }
 
-/* ================= EQUIPE ================= */
+/* ========== Equipe ========== */
 .equipe-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   max-width: 1100px;
 }
 
 .membro {
   background-color: var(--branco);
-  border-radius: 15px;
-  border: 4px solid var(--dourado);
-  width: 220px;
-  padding: 15px;
+  border: 5px solid var(--dourado);
+  border-radius: 20px;
+  width: 240px;
+  padding: 25px 20px 35px 20px;
+  box-shadow: 0 0 25px var(--dourado);
   text-align: center;
-  box-shadow: 0 0 20px var(--dourado);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,169 +289,208 @@ body > * {
 }
 
 .membro-foto {
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
+  border: 4px solid var(--dourado);
   background-color: var(--preto);
-  border: 3px solid var(--dourado);
-  margin-bottom: 15px;
   background-size: cover;
   background-position: center;
+  margin-bottom: 18px;
 }
 
-.centralizado {
-  margin: 0 auto;
+.membro h3 {
+  font-weight: 900;
+  font-size: 1.7rem;
+  color: var(--amarelo-titulo);
+  margin-bottom: 12px;
 }
 
-/* ================= GALERIA ================= */
+.membro p.comentario {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--cinza-escuro);
+}
+
+/* Centraliza o dono Matheus abaixo dos outros */
+.membro.dono {
+  margin-top: 40px;
+  align-self: center;
+}
+
+/* ========== Galeria ========== */
 .galeria-grid {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
   gap: 30px;
   max-width: 1100px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
   padding-bottom: 15px;
-}
-
-.galeria-item {
-  background-color: var(--preto);
-  border: 3px solid var(--dourado);
-  width: 250px;
-  height: 250px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px var(--dourado);
-  flex: 0 0 auto;
+  scroll-behavior: smooth;
   user-select: none;
 }
 
-/* ================= CONTATO ================= */
-#contato {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+.galeria-item {
+  flex: 0 0 260px;
+  height: 260px;
+  background-color: var(--preto);
+  border: 5px solid var(--dourado);
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--dourado);
 }
 
-#contato p a {
-  color: var(--dourado);
-  font-weight: 700;
-  text-decoration: none;
+/* Scrollbar estilizado da galeria */
+.galeria-grid::-webkit-scrollbar {
+  height: 12px;
+}
+
+.galeria-grid::-webkit-scrollbar-track {
+  background: var(--cinza-claro);
+  border-radius: 12px;
+}
+
+.galeria-grid::-webkit-scrollbar-thumb {
+  background: var(--dourado);
+  border-radius: 12px;
+}
+
+/* ========== Contato ========== */
+#contato {
+  max-width: 700px;
+  text-align: center;
   font-size: 1.3rem;
+  color: var(--cinza-escuro);
+}
+
+#contato .endereco-contato {
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+#contato .endereco-contato a {
+  color: var(--dourado);
+  font-weight: 900;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-#contato p a:hover {
+#contato .endereco-contato a:hover,
+#contato .endereco-contato a:focus {
   color: #fff;
   text-decoration: underline;
 }
 
 .social-icons {
-  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
 }
 
 .social-icons a {
+  font-size: 3.5rem;
   color: var(--dourado);
-  font-size: 2.8rem;
-  margin: 0 15px;
   transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #fff;
-}
-
-/* ================= RODAPÉ ================= */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--preto);
-  color: var(--dourado);
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0 0 10px 10px;
-  margin-top: 50px;
   user-select: none;
 }
 
-/* ================= RESPONSIVIDADE ================= */
+.social-icons a:hover,
+.social-icons a:focus {
+  color: #fff;
+}
+
+/* ========== Rodapé ========== */
+footer {
+  text-align: center;
+  background-color: var(--preto);
+  color: var(--dourado);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 20px 10px;
+  border-radius: 0 0 12px 12px;
+  user-select: none;
+}
+
+/* ========== Responsividade ========== */
 @media (max-width: 1100px) {
   .sobre-content {
     flex-direction: column;
     align-items: center;
   }
+
   .foto-dono-quadro {
-    margin-top: 25px;
+    margin-top: 35px;
   }
+
+  .servicos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
   .equipe-grid {
-    flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
   }
+
   .galeria-grid {
-    justify-content: flex-start;
-    overflow-x: scroll;
+    max-width: 100%;
+    gap: 20px;
   }
 }
 
 @media (max-width: 650px) {
   body > * {
-    margin: 10px 10px;
-    padding: 15px 20px 20px 20px;
+    margin: 20px 15px;
+    padding: 25px 25px 35px 25px;
   }
+
   .container-header {
     flex-direction: column;
-    padding: 10px;
+    gap: 25px;
+    padding: 20px 20px;
   }
+
   .logo-simulado {
     width: 100px;
     height: 100px;
-    margin: 0 0 15px 0;
   }
+
   .menu {
     gap: 25px;
     flex-wrap: wrap;
+    justify-content: center;
   }
+
   .menu a {
-    font-size: 1rem;
-    padding: 8px 15px;
+    font-size: 1.1rem;
+    padding: 12px 20px;
   }
+
   .servicos-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
   }
+
   .servico-item button {
-    font-size: 1rem;
-    padding: 15px 0;
+    font-size: 1.2rem;
+    padding: 18px 0;
   }
-  .equipe-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
+
   .membro {
     width: 100%;
   }
-  .galeria-grid {
-    width: 100%;
-    gap: 15px;
-  }
+
   .galeria-item {
-    width: 180px;
+    flex: 0 0 180px;
     height: 180px;
   }
+
+  .social-icons a {
+    font-size: 3rem;
+  }
 }
 
-/* Scrollbar estilizado para galeria */
-.galeria-grid::-webkit-scrollbar {
-  height: 10px;
-}
-
-.galeria-grid::-webkit-scrollbar-track {
-  background: var(--cinza-claro);
-  border-radius: 10px;
-}
-
-.galeria-grid::-webkit-scrollbar-thumb {
-  background: var(--dourado);
-  border-radius: 10px;
+/* Botões com foco acessível */
+button:focus-visible,
+.menu a:focus-visible {
+  outline: 3px solid var(--amarelo-titulo);
+  outline-offset: 3px;
 }
 
 /* Botões acessíveis */

@@ -2,16 +2,15 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matheu's Barbershop - Estilo e Tradição em Mauá</title>
-  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop.">
+  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
-
   <header>
-    <div class="container">
+    <div class="container header-container">
       <a href="#" class="logo">
         <div class="logo-circle">
           <span>MATHEUS<br />BARBERSHOP</span>
@@ -30,7 +29,7 @@
   </header>
 
   <main>
-    <section id="sobre" class="container">
+    <section id="sobre" class="container fullpage-section">
       <div class="sobre-texto">
         <div class="foto-fundador"></div>
         <p>"Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além de apenas abrir um negócio. Eu queria criar um ponto de encontro, um lugar onde cada cliente se sentisse em casa no momento em que passasse pela porta.</p>
@@ -41,7 +40,7 @@
       </div>
     </section>
 
-    <section id="servicos" class="bg-dark">
+    <section id="servicos" class="bg-dark fullpage-section">
       <div class="container">
         <h2 class="titulo-animado">Nossos Serviços</h2>
         <div class="servicos-grid">
@@ -62,76 +61,72 @@
       </div>
     </section>
 
-    <section id="horarios" class="container bg-light">
+    <section id="horarios" class="container fullpage-section">
       <h2 class="titulo-animado">Horários de Funcionamento</h2>
-      <p class="horarios-texto">
-        Segunda a Sexta: 08:00 - 20:00<br />
-        Sábado: 08:00 - 18:00<br />
-        Domingo: Fechado
-      </p>
+      <div class="horarios-texto">
+        <p>Segunda a Sexta: 08:00 - 20:00</p>
+        <p>Sábado: 08:00 - 18:00</p>
+        <p>Domingo: Fechado</p>
+      </div>
     </section>
 
-    <section id="equipe" class="container">
+    <section id="equipe" class="container fullpage-section">
       <h2 class="titulo-animado">Nossa Equipe</h2>
       <div class="equipe-grid">
         <div class="membro">
           <img src="https://placehold.co/300x300/e0e0e0/333?text=Matheus" alt="Foto do Barbeiro Matheus" />
           <h3>Matheus</h3>
-          <p class="comentario">"Apaixonado pelo estilo clássico e sempre atento aos detalhes para garantir o melhor corte."</p>
+          <p class="comentario">"O Matheus é o coração da barbearia, sempre com um sorriso e um corte perfeito."</p>
         </div>
         <div class="membro">
           <img src="https://placehold.co/300x300/e0e0e0/333?text=Lyon" alt="Foto do Barbeiro Lyon" />
           <h3>Lyon</h3>
-          <p class="comentario">"Combinando técnica e criatividade para deixar você sempre estiloso."</p>
+          <p class="comentario">"Especialista em cortes clássicos e estilos modernos, o Lyon é versátil e dedicado."</p>
         </div>
         <div class="membro">
           <img src="https://placehold.co/300x300/e0e0e0/333?text=Eduardo" alt="Foto do Barbeiro Eduardo" />
           <h3>Eduardo</h3>
-          <p class="comentario">"Especialista em cortes modernos e barba bem feita, pronto para te atender."</p>
+          <p class="comentario">"Eduardo garante a satisfação com atenção aos mínimos detalhes em cada atendimento."</p>
         </div>
         <div class="membro">
           <img src="https://placehold.co/300x300/e0e0e0/333?text=Kyan" alt="Foto do Barbeiro Kyan" />
           <h3>Kyan</h3>
-          <p class="comentario">"Seu visual renovado com estilo e confiança."</p>
+          <p class="comentario">"Sempre atento às tendências, o Kyan cria estilos únicos e modernos."</p>
         </div>
       </div>
     </section>
 
-    <section id="galeria" class="bg-dark container">
-      <h2 class="titulo-animado">Galeria de Clientes</h2>
-      <p class="galeria-texto">Em breve fotos e vídeos incríveis dos nossos clientes.</p>
+    <section id="galeria" class="bg-dark fullpage-section">
+      <div class="container">
+        <h2 class="titulo-animado">Galeria de Clientes</h2>
+        <div class="galeria-grid">
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+          <div class="galeria-item"></div>
+        </div>
+      </div>
     </section>
-
   </main>
 
   <footer id="contato">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h3>Matheu's Barbershop</h3>
-          <p>Onde o Estilo Clássico Encontra a Atitude Moderna.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <a href="https://wa.me/5511996681789" target="_blank" class="social-icon whatsapp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="https://www.instagram.com/matheussbarbershop" target="_blank" class="social-icon instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-        <div class="footer-col">
-          <h4>Endereço</h4>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=R.+Vito+Pedro+Dell'Antônia,+85,+Mauá" target="_blank" style="color:inherit;">
-              R. Vito Pedro Dell'Antônia, 85, Mauá - SP, 09310-070
-            </a>
-          </p>
-        </div>
+    <div class="container footer-grid">
+      <div class="footer-col endereco-galeria">
+        <h4>Endereço e Galeria Veneza</h4>
+        <p>R. Vito Pedro Dell'Antônia, 85, Mauá - SP, 09310-070</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=R.+Vito+Pedro+Dell'Antônia,+85,+Mauá" target="_blank" rel="noopener noreferrer">Ver no mapa</a></p>
       </div>
-      <div class="copyright">
-        &copy; 2025 Matheu's Barbershop. Todos os direitos reservados.
+      <div class="footer-col redes-sociais">
+        <a href="https://wa.me/5511996681789" target="_blank" aria-label="WhatsApp Matheus Barbershop" class="social-icon wpp-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/matheussbarbershop" target="_blank" aria-label="Instagram Matheus Barbershop" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
       </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Matheu's Barbershop. Todos os direitos reservados.
     </div>
   </footer>
 

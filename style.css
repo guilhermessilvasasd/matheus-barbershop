@@ -1,13 +1,13 @@
 :root {
-  --cor-primaria: #1a1a1a;
+  --cor-primaria: #000000;
   --cor-fundo: #ffffff;
-  --cor-destaque: #d4af37; /* Ouro */
+  --cor-destaque: #d4af37;
   --cor-texto: #333333;
   --cor-texto-claro: #f0f0f0;
   --cor-fundo-escuro: #1a1a1a;
 }
 
-/* Reset e padrões */
+/* Reset e padrão */
 * {
   margin: 0;
   padding: 0;
@@ -20,270 +20,243 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  border-left: 20px solid black;
-  border-right: 20px solid black;
 }
-.page-margins {
+.container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
+}
+section {
+  padding: 100px 0;
+}
+h2 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--cor-destaque);
+  text-align: center;
+  margin-bottom: 50px;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+h2.grow {
+  transform: scale(1.15);
 }
 
-/* Header fixo */
+/* Cabeçalho */
 #header {
   background-color: var(--cor-primaria);
-  padding: 10px 20px;
+  border-bottom: 2px solid var(--cor-destaque);
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 10px 0;
 }
-.header-container {
+#header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.logo-circle {
+#header .logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 110px;
-  height: 110px;
+}
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  background: black;
   border-radius: 50%;
-  background: radial-gradient(circle, #000000 0%, #d4af37 85%);
-  color: var(--cor-destaque);
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  text-align: center;
-  user-select: none;
-  text-transform: uppercase;
-  box-shadow: 0 0 15px #d4af37;
-  cursor: default;
-  transition: transform 0.3s ease;
-}
-.logo-circle-inner span {
-  display: block;
-  padding: 5px;
-}
-.logo-circle:hover {
-  transform: scale(1.1);
+  border: 4px solid var(--cor-destaque);
+  /* Você vai substituir essa div pela imagem depois, ou pode manter */
 }
 #header nav a {
-  color: var(--cor-texto-claro);
-  font-weight: 700;
   margin: 0 15px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  color: var(--cor-texto-claro);
   text-decoration: none;
+  padding: 6px 12px;
+  background-color: #33333380;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
   user-select: none;
 }
 #header nav a:hover {
   background-color: var(--cor-destaque);
   color: var(--cor-primaria);
-  text-decoration: none;
 }
 
-/* Barber Pole - espiral e vertical */
+/* Barber pole diagonal e espiral */
 .barber-pole {
   width: 25px;
-  height: 160px;
-  border-radius: 30px;
-  margin-left: 15px;
+  height: 100px;
+  border-radius: 20px;
   background: repeating-conic-gradient(
-    from 0deg,
-    #d90429 0deg 45deg,
-    #0b3d91 45deg 90deg
+    from 45deg,
+    red 0deg 30deg,
+    blue 30deg 60deg,
+    white 60deg 90deg
   );
   animation: spin-spiral 4s linear infinite;
-  cursor: default;
+  margin-left: 15px;
+  flex-shrink: 0;
 }
 @keyframes spin-spiral {
-  0% {
-    transform: rotate(0deg) scale(1);
+  from {
+    transform: rotate(0deg) skew(10deg, 10deg);
   }
-  50% {
-    transform: rotate(180deg) scale(1.05);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
+  to {
+    transform: rotate(360deg) skew(10deg, 10deg);
   }
 }
 
 /* Seção Sobre */
 #sobre {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 50px;
-  margin-bottom: 80px;
+  gap: 40px;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  color: var(--cor-primaria);
-}
-.foto-dono img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 4px solid var(--cor-destaque);
-  object-fit: cover;
-  box-shadow: 0 0 20px var(--cor-destaque);
-  user-select: none;
+  text-align: center;
 }
 .sobre-texto {
-  max-width: 700px;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  user-select: text;
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cor-texto);
 }
-
-/* Títulos animados que crescem ao chegar na viewport */
-.titulo-animado {
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-size: 3.2rem;
-  color: var(--cor-destaque);
-  text-align: center;
-  margin-bottom: 50px;
-  user-select: none;
-  transition: transform 0.5s ease;
-}
-.titulo-animado.grow {
-  transform: scale(1.15);
+.foto-matheus {
+  width: 200px;
+  height: 200px;
+  background: url('https://placehold.co/200x200/e0e0e0/333?text=Matheus') no-repeat center/cover;
+  border-radius: 50%;
+  border: 4px solid var(--cor-destaque);
+  flex-shrink: 0;
 }
 
 /* Serviços */
 #servicos {
   background-color: var(--cor-fundo-escuro);
-  padding-bottom: 50px;
-  padding-top: 60px;
-  border-radius: 12px;
+  color: var(--cor-texto-claro);
 }
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .servico-item {
-  background-color: #2b2b2b;
-  color: var(--cor-texto-claro);
-  padding: 18px 25px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-left: 5px solid var(--cor-destaque);
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-.servico-item:hover,
-.servico-item.selected {
-  background-color: #4c3a0d;
-  border-color: #ffe066;
-  color: #ffe066;
-}
-.servico-item .preco {
-  font-weight: 900;
-  font-size: 1.1rem;
+  background-color: #222222;
   color: var(--cor-destaque);
-}
-
-/* Total serviços */
-.total-servicos {
-  max-width: 700px;
-  margin: 40px auto 20px;
-  color: var(--cor-texto-claro);
+  padding: 18px 20px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 1.3rem;
-  text-align: center;
+  font-size: 1.1rem;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
   user-select: none;
+}
+.servico-item.selected {
+  border-color: var(--cor-destaque);
+  background-color: #000000cc;
+  box-shadow: 0 0 10px var(--cor-destaque);
+}
+.resumo-servicos {
+  margin-top: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  font-size: 1.25rem;
+}
+.resumo-servicos ul {
+  list-style: none;
+  margin-bottom: 8px;
+  color: var(--cor-primaria);
+}
+.resumo-servicos p {
+  font-size: 1.5rem;
+  color: var(--cor-destaque);
 }
 
 /* Equipe */
 .equipe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
-  margin: 0 20px 80px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .membro {
   text-align: center;
-  user-select: none;
 }
 .membro img {
   width: 100%;
-  max-width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 4px solid var(--cor-destaque);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  margin-bottom: 15px;
-  box-shadow: 0 0 15px var(--cor-destaque);
-  transition: transform 0.3s ease;
+  border-radius: 50%;
+  border: 5px solid var(--cor-destaque);
+  margin-bottom: 10px;
 }
 .membro h3 {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  font-size: 1.3rem;
   color: var(--cor-primaria);
-  user-select: none;
+  margin-bottom: 5px;
 }
 .membro p.comentario {
   font-style: italic;
-  font-size: 1rem;
-  color: #666;
-  user-select: text;
+  font-size: 0.9rem;
+  color: #555555;
 }
 .membro.dono {
-  grid-column: 1 / -1;
   justify-self: center;
 }
 
 /* Galeria */
 #galeria {
   background-color: var(--cor-fundo-escuro);
-  padding: 60px 0 80px;
-  border-radius: 12px;
+  color: var(--cor-texto-claro);
 }
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
+  padding-bottom: 60px;
 }
 .quadro-vazio {
-  background-color: black;
+  background-color: #000000;
   border: 3px solid var(--cor-destaque);
-  height: 160px;
-  border-radius: 8px;
+  border-radius: 6px;
+  height: 140px;
   user-select: none;
 }
 
 /* Horários */
-#horarios {
-  margin-bottom: 80px;
+.horarios-container {
   text-align: center;
-  color: var(--cor-primaria);
-  user-select: none;
+  margin-top: 60px;
+  margin-bottom: 80px;
 }
-.horarios-texto {
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-size: 1.6rem;
-  margin-top: 10px;
-  color: var(--cor-destaque);
+.horarios-container h2 {
+  margin-bottom: 20px;
+}
+.horarios-container p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
 }
 
 /* Rodapé */
 footer {
   background-color: var(--cor-primaria);
-  padding: 30px 20px;
+  padding: 40px 20px 25px;
   color: var(--cor-texto-claro);
   text-align: center;
   user-select: none;
@@ -291,8 +264,8 @@ footer {
 footer h2 {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
   color: var(--cor-destaque);
   text-transform: uppercase;
 }
@@ -308,14 +281,14 @@ footer h2 {
   color: #fff56a;
 }
 .redes-sociais {
-  margin-top: 25px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
 }
 .social-icon {
   color: var(--cor-destaque);
-  font-size: 2.6rem;
+  font-size: 3rem;
   transition: color 0.3s ease;
 }
 .social-icon:hover {
@@ -323,30 +296,33 @@ footer h2 {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  #sobre {
-    flex-direction: column;
+@media (max-width: 900px) {
+  .servicos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
   .equipe-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .membro.dono {
-    grid-column: auto;
-    justify-self: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   .galeria-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
-  .quadro-vazio {
-    height: 120px;
-  }
-  .servicos-grid {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
+  .horarios-container p {
+    font-size: 1.1rem;
   }
 }
-
-/* Ajustes finais para o cabeçalho */
-#header nav a {
-  text-decoration: none; /* remove underline */
+@media (max-width: 480px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #header nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+  .servico-item {
+    font-size: 1rem;
+  }
+  .social-icon {
+    font-size: 2.5rem;
+  }
 }

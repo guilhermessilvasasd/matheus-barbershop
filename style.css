@@ -6,104 +6,107 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Variáveis cores */
+/* Variáveis de cores */
 :root {
   --preto: #000000;
   --dourado: #d4af37;
   --branco: #ffffff;
   --cinza-claro: #f5f5f5;
-  --amarelo-titulo: #ffcc00;
   --cinza-escuro: #222222;
+  --amarelo-titulo: #ffcc00;
 }
 
 /* Body e Wrapper */
 body {
   background-color: var(--preto);
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  padding: 10px 0;
 }
 
 .page-wrapper {
   max-width: 1140px;
   width: 100%;
   background-color: var(--branco);
-  margin: 20px 10px;
-  padding: 30px 40px;
-  border: 1px solid var(--cinza-claro);
+  margin: 10px 15px;
+  padding: 30px 30px 50px 30px;
   border-radius: 8px;
+  border: 1px solid var(--cinza-claro);
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-/* Cabeçalho */
+/* Cabeçalho fixo no topo */
 .container-header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
   background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
-  border-radius: 8px;
-  margin-bottom: 50px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 14px 30px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
 }
 
-/* Logo redondo */
+/* Logo arredondado */
 .logo-simulado {
   width: 90px;
   height: 90px;
   background-color: var(--preto);
-  border: 2px solid var(--dourado);
+  border: 2.5px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
+  box-shadow: 0 0 8px var(--dourado);
+  flex-shrink: 0;
 }
 
-/* Menu */
+/* Menu centralizado */
 .menu {
   display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 22px;
   flex-grow: 1;
-  margin: 0 40px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .menu a {
-  color: var(--branco);
-  background-color: transparent;
-  font-weight: 600;
+  color: var(--preto);
+  background-color: var(--dourado);
+  font-weight: 700;
   text-decoration: none;
-  padding: 10px 18px;
-  border: 1.5px solid var(--dourado);
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  padding: 12px 28px;
+  border-radius: 40px;
+  box-shadow: 0 0 8px var(--dourado);
+  font-size: 1.1rem;
   user-select: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .menu a:hover,
 .menu a:focus {
-  background-color: var(--dourado);
-  color: var(--preto);
+  background-color: var(--preto);
+  color: var(--dourado);
+  transform: scale(1.12);
   outline: none;
 }
 
-/* Barber Pole animado no cabeçalho */
+/* Barber pole animado girando */
 .barber-pole {
-  width: 16px;
-  height: 70px;
-  border-radius: 12px;
+  width: 20px;
+  height: 110px;
+  border-radius: 20px;
   background: repeating-linear-gradient(
     45deg,
     red 0 8px,
@@ -111,51 +114,49 @@ body {
     blue 16px 24px
   );
   box-shadow: 0 0 6px var(--dourado);
-  animation: spiral-background 3s linear infinite;
+  animation: girar-barberpole 6s linear infinite;
+  margin-left: 20px;
   flex-shrink: 0;
 }
 
-@keyframes spiral-background {
-  0% {
+@keyframes girar-barberpole {
+  from {
     background-position: 0 0;
   }
-  100% {
-    background-position: 48px 48px;
+  to {
+    background-position: 80px 80px;
   }
 }
 
-/* Seções */
+/* Seções padrão */
 .section-padrao {
-  padding: 50px 30px;
-  margin-bottom: 70px;
+  padding: 60px 30px 80px 30px;
+  margin-bottom: 90px;
   background-color: var(--branco);
   border-radius: 8px;
   border: 1px solid var(--cinza-claro);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
   scroll-margin-top: 110px;
-  transition: background-color 0.3s ease;
-  position: relative;
 }
 
-/* Fundo leve para cada seção (exemplo, pode personalizar) */
-.section-padrao:nth-of-type(odd) {
-  background-color: #fff9e6;
-}
-
-/* Títulos */
+/* Títulos das seções */
 .titulo-secao {
-  font-weight: 700;
-  font-size: 2.4rem;
-  color: var(--preto);
-  margin-bottom: 40px;
-  text-align: center;
   font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--preto);
+  margin-bottom: 35px;
+  text-align: center;
   user-select: none;
+  background-color: var(--dourado);
+  padding: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--dourado);
   transition: transform 0.3s ease;
 }
 
 .titulo-secao.crescendo {
-  animation: crescer 0.8s forwards;
+  animation: crescer 0.7s forwards;
 }
 
 @keyframes crescer {
@@ -169,35 +170,30 @@ body {
   }
 }
 
-/* Sobre */
-.sobre-content {
-  display: flex;
-  gap: 40px;
-  max-width: 900px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  color: var(--cinza-escuro);
-  font-size: 1.1rem;
-  line-height: 1.6;
+/* Sobre - texto */
+.texto-sobre {
+  color: var(--preto);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: justify;
 }
 
-.texto-sobre {
-  flex: 1 1 520px;
-  text-align: justify;
-  color: var(--preto);
+.texto-sobre p {
+  margin-bottom: 20px;
 }
 
 .assinatura {
-  text-align: right;
+  margin-top: 25px;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
+  text-align: right;
   color: var(--dourado);
-  margin-top: 20px;
-  user-select: none;
+  font-size: 1.15rem;
 }
 
-/* Foto do dono */
+/* Quadro da foto do dono */
 .foto-dono-quadro {
   width: 220px;
   height: 220px;
@@ -206,17 +202,17 @@ body {
   background-color: var(--cinza-claro);
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  flex-shrink: 0;
+  margin: 30px auto 0 auto;
+  box-shadow: 0 0 15px var(--dourado);
 }
 
-/* Serviços */
+/* Serviços grid */
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 22px;
-  width: 100%;
   max-width: 900px;
+  margin: 0 auto;
 }
 
 .servico-item button {
@@ -225,26 +221,26 @@ body {
   font-size: 1.25rem;
   font-weight: 900;
   border-radius: 35px;
-  border: 3px solid var(--dourado);
-  background-color: var(--branco);
+  border: 3.5px solid var(--dourado);
+  background-color: var(--dourado);
   color: var(--preto);
   cursor: pointer;
-  box-shadow: 0 0 12px var(--dourado);
+  box-shadow: 0 0 20px var(--dourado);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
 }
 
 .servico-item button:hover,
 .servico-item button.selecionado {
-  background-color: var(--dourado);
-  color: var(--preto);
-  box-shadow: 0 0 30px var(--dourado);
+  background-color: var(--preto);
+  color: var(--dourado);
+  box-shadow: 0 0 35px var(--dourado);
   transform: scale(1.1);
 }
 
-/* Soma total serviços selecionados */
+/* Soma dos serviços selecionados */
 .soma-servicos {
-  margin-top: 60px;
+  margin-top: 55px;
   font-size: 2rem;
   font-weight: 900;
   color: var(--amarelo-titulo);
@@ -252,13 +248,14 @@ body {
   user-select: none;
 }
 
-/* Equipe */
+/* Equipe grid */
 .equipe-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 35px;
   max-width: 1050px;
+  margin: 0 auto;
 }
 
 .membro {
@@ -267,7 +264,7 @@ body {
   border-radius: 20px;
   width: 220px;
   padding: 26px 18px 36px 18px;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 18px var(--dourado);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -290,7 +287,7 @@ body {
   background-position: center;
   border: 4px solid var(--dourado);
   margin-bottom: 18px;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px var(--dourado);
 }
 
 .membro h3 {
@@ -307,26 +304,27 @@ body {
   line-height: 1.4;
 }
 
-/* Galeria clientes estilo Instagram grid */
+/* Galeria estilo Instagram */
 .galeria-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 24px;
+  gap: 20px;
   max-width: 100%;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 60px;
+  padding: 0 10px;
 }
 
 .galeria-item {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   background-color: var(--preto);
   border: 4px solid var(--dourado);
   border-radius: 12px;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 20px var(--dourado);
   user-select: none;
-  background-image: url('https://via.placeholder.com/180x180?text=Cliente');
+  background-image: url('https://via.placeholder.com/140x140?text=Cliente');
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
@@ -340,6 +338,7 @@ body {
 /* Contato */
 #contato {
   max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -365,7 +364,7 @@ body {
   outline: none;
 }
 
-/* Ícones sociais no contato */
+/* Ícones sociais */
 .social-icons {
   margin-top: 30px;
   display: flex;
@@ -374,7 +373,7 @@ body {
 }
 
 .social-icons a {
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   color: var(--preto);
   transition: color 0.3s ease;
 }
@@ -387,7 +386,7 @@ body {
 
 /* Rodapé */
 footer {
-  margin-top: 35px;
+  margin-top: 40px;
   padding: 22px 0;
   background-color: var(--preto);
   color: var(--dourado);
@@ -399,142 +398,133 @@ footer {
   font-size: 1rem;
 }
 
-/* Horário de funcionamento */
-.horario-funcionamento {
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--cinza-escuro);
-  margin-top: 25px;
-  text-align: center;
-  user-select: none;
-}
-
 /* Responsividade */
+
 @media (max-width: 1200px) {
   .page-wrapper {
-    margin: 20px 15px;
+    margin: 15px 12px;
     max-width: 100%;
+    padding: 28px 24px 48px 24px;
   }
-
   .container-header {
-    padding: 12px 18px;
+    padding: 12px 20px;
+    margin-bottom: 32px;
   }
-
   .logo-simulado {
     width: 80px;
     height: 80px;
-    font-size: 0.8rem;
-  }
-
-  .menu {
-    margin: 0 15px;
-    gap: 15px;
-  }
-
-  .menu a {
     font-size: 0.9rem;
-    padding: 8px 14px;
   }
-
+  .menu {
+    gap: 16px;
+  }
+  .menu a {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
   .barber-pole {
-    width: 14px;
-    height: 60px;
+    width: 16px;
+    height: 90px;
   }
-
+  .servicos-grid {
+    gap: 18px;
+  }
   .servico-item button {
-    font-size: 1.1rem;
-    padding: 12px 0;
+    font-size: 1.15rem;
+    padding: 14px 0;
   }
-
   .equipe-grid {
     gap: 25px;
   }
-
   .membro {
-    width: 190px;
+    width: 200px;
     padding: 22px 14px 30px 14px;
   }
-
   .membro-foto {
     width: 160px;
     height: 160px;
   }
-
   .galeria-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 18px;
   }
-
   .galeria-item {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
-
+  .social-icons {
+    gap: 32px;
+  }
   .social-icons a {
     font-size: 3rem;
   }
 }
 
-@media (max-width: 750px) {
-  .page-wrapper {
-    margin: 15px 10px;
-  }
-
+@media (max-width: 768px) {
   .container-header {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 18px;
   }
-
   .logo-simulado {
     width: 70px;
     height: 70px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
-
   .menu {
-    gap: 12px;
+    justify-content: center;
+    gap: 20px;
   }
-
   .menu a {
-    font-size: 0.85rem;
-    padding: 8px 12px;
+    font-size: 0.9rem;
+    padding: 8px 18px;
   }
-
   .servicos-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
+    gap: 14px;
   }
-
+  .servico-item button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
   .equipe-grid {
-    gap: 15px;
+    gap: 20px;
   }
-
   .membro {
-    width: 150px;
-    padding: 18px 10px 22px 10px;
+    width: 170px;
+    padding: 20px 12px 26px 12px;
   }
-
   .membro-foto {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
   }
-
   .galeria-grid {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 12px;
   }
-
   .galeria-item {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
   }
-
   .social-icons {
-    gap: 22px;
+    gap: 28px;
   }
-
   .social-icons a {
     font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-simulado {
+    width: 60px;
+    height: 60px;
+    font-size: 0.75rem;
+  }
+  .menu {
+    gap: 14px;
+  }
+  .menu a {
+    font-size: 0.85rem;
+    padding: 8px 14px;
   }
 }

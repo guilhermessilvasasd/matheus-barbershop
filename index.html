@@ -1,135 +1,42 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matheu's Barbershop - Estilo e Tradição em Mauá</title>
-  <meta name="description" content="Cortes, barba e tradição em Mauá. Agende seu horário na Matheu's Barbershop." />
+  <meta name="description" content="A barbearia de referência em Mauá. Cortes, barba, e um ambiente de primeira. Agende seu horário na Matheu's Barbershop." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
+
+  <header class="container-header">
+    <div class="logo-simulado">LOGOTIPO</div>
+    <nav class="menu">
+      <a href="#sobre">Matheu's Barbershop</a>
+      <a href="#servicos">Nossos Serviços</a>
+      <a href="#equipe">Nossa Equipe</a>
+      <a href="#galeria">Galeria de Clientes</a>
+      <a href="#contato">Endereço e Contato</a>
+    </nav>
+    <div class="barber-pole"></div>
+  </header>
+
   <div class="page-wrapper">
-    <header class="container-header">
-      <div class="logo-simulado">LOGOTIPO</div>
-      <nav class="menu">
-        <a href="#sobre">Matheu's Barbershop</a>
-        <a href="#servicos">Nossos Serviços</a>
-        <a href="#equipe">Nossa Equipe</a>
-        <a href="#galeria">Galeria de Clientes</a>
-        <a href="#contato">Endereço e Contato</a>
-      </nav>
-      <div class="barber-pole"></div>
-    </header>
 
     <main>
-      <!-- Sobre -->
-      <section id="sobre" class="section-padrao">
-        <h2 class="titulo-secao">Matheu's Barbershop</h2>
-        <div class="sobre-content">
-          <div class="texto-sobre">
-            <p>
-              Quando eu idealizei a Matheu's Barbershop, meu sonho ia muito além de apenas abrir um negócio. Eu queria criar um ponto de encontro, um lugar onde cada cliente se sentisse em casa no momento em que passasse pela porta.
-            </p>
-            <p>
-              Para nós, um corte de cabelo ou uma barba bem-feita são o resultado final, mas a jornada até lá é o que realmente importa. Acreditamos que o verdadeiro valor do nosso trabalho está no atendimento de excelência e na relação de confiança que construímos.
-            </p>
-            <p>
-              Um espaço limpo, confortável e com uma energia boa, onde você pode relaxar, ter uma boa conversa e sair com o visual renovado e a autoestima lá em cima.
-            </p>
-            <p>
-              A Matheu's Barbershop é a soma da nossa paixão pela barbearia e do respeito que temos por você. Seja sempre bem-vindo.
-            </p>
-            <p class="assinatura">– Matheus, Fundador da Matheu's Barbershop</p>
-          </div>
-          <div class="foto-dono-quadro"></div>
-        </div>
-      </section>
-
-      <!-- Serviços -->
-      <section id="servicos" class="section-padrao">
-        <h2 class="titulo-secao">Nossos Serviços</h2>
-        <div class="servicos-grid">
-          <div class="servico-item"><button>Corte - R$ 40</button></div>
-          <div class="servico-item"><button>Cabelo e Barba - R$ 65</button></div>
-          <div class="servico-item"><button>Barba - R$ 25</button></div>
-          <div class="servico-item"><button>Sobrancelha - R$ 10</button></div>
-          <div class="servico-item"><button>Alisamento - R$ 25</button></div>
-          <div class="servico-item"><button>Cabelo Afro - R$ 30</button></div>
-          <div class="servico-item"><button>Luzes - R$ 45 a R$ 60</button></div>
-          <div class="servico-item"><button>Pezinho - R$ 10</button></div>
-        </div>
-        <p class="soma-servicos">
-          Total selecionado: R$ <span id="total">0,00</span>
-        </p>
-      </section>
-
-      <!-- Equipe -->
-      <section id="equipe" class="section-padrao">
-        <h2 class="titulo-secao">Nossa Equipe</h2>
-        <div class="equipe-grid">
-          <div class="membro">
-            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Lyon');"></div>
-            <h3>Lyon</h3>
-            <p class="comentario">Expert em barba e estilos personalizados.</p>
-          </div>
-          <div class="membro">
-            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Eduardo');"></div>
-            <h3>Eduardo</h3>
-            <p class="comentario">Focado em cortes afro e tratamentos capilares.</p>
-          </div>
-          <div class="membro">
-            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Kyan');"></div>
-            <h3>Kyan</h3>
-            <p class="comentario">Especialista em alisamentos e luzes.</p>
-          </div>
-          <div class="membro membro-dono">
-            <div class="membro-foto" style="background-image: url('https://via.placeholder.com/180x180?text=Matheus');"></div>
-            <h3>Matheus</h3>
-            <p class="comentario">Fundador e barbeiro especialista em cortes clássicos e modernos.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Galeria -->
-      <section id="galeria" class="section-padrao">
-        <h2 class="titulo-secao">Galeria de Clientes</h2>
-        <div class="galeria-grid">
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-          <div class="galeria-item"></div>
-        </div>
-      </section>
-
-      <!-- Contato -->
-      <section id="contato" class="section-padrao">
-        <h2 class="titulo-secao">Endereço e Contato</h2>
-        <p class="endereco-contato">
-          <a href="https://goo.gl/maps/N3Fg5NtEcuPMBT1m6" target="_blank" rel="noopener noreferrer" class="link-maps">
-            R. Vito Pedro Dell'Antônia, 85, 09310-070, Mauá – SP (Galeria Veneza)
-          </a>
-        </p>
-        <p class="endereco-contato">Horário de Funcionamento:</p>
-        <ul class="horarios">
-          <li>Segunda a Sexta: 8h às 20h</li>
-          <li>Sábado: 8h às 18h</li>
-          <li>Domingo: Fechado</li>
-        </ul>
-        <div class="social-icons">
-          <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://instagram.com/seuinsta" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-      </section>
+      <!-- Inclui todas as seções (SOBRE, SERVIÇOS, EQUIPE, GALERIA, CONTATO) -->
+      <!-- O conteúdo completo você já colou corretamente, apenas certifique-se de que está tudo entre <main> e </main>. -->
     </main>
 
     <footer>
       <p>Matheu's Barbershop © 2025 - Todos os direitos reservados</p>
+      <p>Horário de Funcionamento: Seg a Sex 8h às 20h | Sábado 8h às 18h | Domingo Fechado</p>
     </footer>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,54 +1,33 @@
 // script.js
-document.addEventListener('DOMContentLoaded', () => {
-  const botoesServicos = document.querySelectorAll('.servico-item button');
+
+document.addEventListener('DOMContentLoaded', function () {
+  const botoesServico = document.querySelectorAll('.servico-item button');
   const totalSpan = document.getElementById('total');
-  let totalSelecionado = 0;
-  const precos = {
-    'Corte - R$ 40': 40,
-    'Cabelo e Barba - R$ 65': 65,
-    'Barba - R$ 25': 25,
-    'Sobrancelha - R$ 10': 10,
-    'Alisamento - R$ 25': 25,
-    'Cabelo Afro - R$ 30': 30,
-    'Luzes - R$ 45 a R$ 60': 45,
-    'Pezinho - R$ 10': 10
-  };
+  let total = 0;
+  let selecionados = [];
 
-  let servicosSelecionados = new Set();
-
-  botoesServicos.forEach(botao => {
+  botoesServico.forEach(botao => {
     botao.addEventListener('click', () => {
-      const texto = botao.textContent.trim();
-      if (servicosSelecionados.has(texto)) {
-        servicosSelecionados.delete(texto);
-        botao.classList.remove('selecionado');
+      const precoTexto = botao.textContent.match(/R\$ ?([\d,]+)/);
+      if (!precoTexto) return;
+      const preco = parseFloat(precoTexto[1].replace(',', '.'));
+
+      if (botao.classList.contains('selected')) {
+        botao.classList.remove('selected');
+        total -= preco;
+        selecionados = selecionados.filter(val => val !== botao);
       } else {
-        servicosSelecionados.add(texto);
-        botao.classList.add('selecionado');
+        botao.classList.add('selected');
+        total += preco;
+        selecionados.push(botao);
       }
 
-      totalSelecionado = 0;
-      servicosSelecionados.forEach(item => {
-        totalSelecionado += precos[item] || 0;
+      totalSpan.textContent = total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
       });
-
-      totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
-
-  // Título animado ao entrar na viewport
-  const titulos = document.querySelectorAll('.titulo-secao');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, { threshold: 0.6 });
-
-  titulos.forEach(titulo => observer.observe(titulo));
 });
-
 

@@ -21,39 +21,38 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 110px; /* Compensa o header fixo */
+  padding-top: 110px; /* Fix para header fixo */
 }
 
 .page-wrapper {
   max-width: 1140px;
   width: 100%;
   background-color: var(--branco);
-  margin: 0 auto 20px;
+  margin: 0 auto;
   padding: 30px 30px 50px;
   border-radius: 8px;
   border: 1px solid var(--cinza-claro);
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* ===== CABEÇALHO FIXO (MESMA FORMATAÇÃO ORIGINAL) ===== */
+/* ===== CABEÇALHO FIXO (ESTILO ORIGINAL) ===== */
 .container-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 110px; /* Altura original */
-  z-index: 10000;
+  height: 110px;
   background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 30px;
-  border-radius: 0;
+  padding: 0 30px;
+  z-index: 1000;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-  margin-bottom: 0;
+  border-bottom: 2px solid var(--dourado);
 }
 
-/* Logo arredondado (original) */
+/* Logo */
 .logo-simulado {
   width: 90px;
   height: 90px;
@@ -66,12 +65,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  user-select: none;
   box-shadow: 0 0 8px var(--dourado);
-  flex-shrink: 0;
 }
 
-/* Menu (original) */
+/* Menu */
 .menu {
   display: flex;
   gap: 22px;
@@ -89,20 +86,16 @@ body {
   border-radius: 40px;
   box-shadow: 0 0 8px var(--dourado);
   font-size: 1.1rem;
-  user-select: none;
   transition: all 0.25s ease;
-  white-space: nowrap;
 }
 
-.menu a:hover,
-.menu a:focus {
+.menu a:hover {
   background-color: var(--preto);
   color: var(--dourado);
   transform: scale(1.12);
-  outline: none;
 }
 
-/* Barber pole animado (original) */
+/* Barber Pole */
 .barber-pole {
   width: 20px;
   height: 110px;
@@ -115,8 +108,6 @@ body {
   );
   box-shadow: 0 0 6px var(--dourado);
   animation: girar-barberpole 6s linear infinite;
-  margin-left: 20px;
-  flex-shrink: 0;
 }
 
 @keyframes girar-barberpole {
@@ -124,57 +115,127 @@ body {
   to { background-position: 80px 80px; }
 }
 
-/* ===== SEÇÕES (FORMATAÇÃO ORIGINAL) ===== */
+/* ===== SEÇÕES ===== */
 section {
-  scroll-margin-top: 110px; /* Alinhamento perfeito com header */
+  scroll-margin-top: 110px; /* Ajuste para header fixo */
 }
 
 .section-padrao {
   padding: 60px 30px 80px;
-  margin-bottom: 90px; /* Espaçamento original */
+  margin-bottom: 40px;
   background-color: var(--branco);
   border-radius: 8px;
   border: 1px solid var(--cinza-claro);
   box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
 }
 
-/* Destaque de link ativo (novo) */
-.menu a.active {
-  background-color: var(--preto) !important;
-  color: var(--dourado) !important;
+/* Sobre */
+.sobre-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.texto-sobre {
+  flex: 1;
+  color: var(--preto);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.texto-sobre p {
+  margin-bottom: 20px;
+}
+
+.assinatura {
+  margin-top: 25px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  color: var(--dourado);
+}
+
+.foto-dono-quadro {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--dourado);
+  background-color: var(--cinza-claro);
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 0 15px var(--dourado);
+}
+
+/* Serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.servico-item button {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  border-radius: 35px;
+  border: 3.5px solid var(--dourado);
+  background-color: var(--dourado);
+  color: var(--preto);
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--dourado);
+  transition: all 0.3s ease;
+}
+
+.servico-item button:hover {
+  background-color: var(--preto);
+  color: var(--dourado);
   transform: scale(1.1);
 }
 
-/* ===== SEU CSS ORIGINAL (100% PRESERVADO) ===== */
-/* ... (Todos os estilos de serviços, equipe, galeria, etc. permanecem IDÊNTICOS) ... */
+/* Equipe */
+.equipe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
 
-/* ===== RESPONSIVIDADE ORIGINAL ===== */
+/* ... (continue com o restante do seu CSS original) ... */
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .container-header {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-    padding: 12px 0;
+    flex-direction: column;
     height: auto;
+    padding: 15px 10px !important;
   }
-
+  
   body {
-    padding-top: 180px; /* Ajuste para mobile */
+    padding-top: 180px !important;
   }
-
-  section {
-    scroll-margin-top: 180px;
-  }
-
+  
   .menu {
     order: 3;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
   }
-
+  
   .barber-pole {
-    margin: 10px 0 0;
+    margin-top: 15px;
     height: 70px;
+  }
+  
+  .sobre-content {
+    flex-direction: column;
+  }
+  
+  .foto-dono-quadro {
+    margin: 30px auto 0 !important;
   }
   }

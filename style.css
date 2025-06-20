@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +6,22 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Variáveis cores */
 :root {
   --preto: #000000;
   --dourado: #d4af37;
   --branco: #ffffff;
   --cinza-claro: #f5f5f5;
+  --amarelo-titulo: #ffcc00;
   --cinza-escuro: #222222;
 }
 
+/* Body e Wrapper */
 body {
   background-color: var(--preto);
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
@@ -27,12 +32,13 @@ body {
   width: 100%;
   background-color: var(--branco);
   margin: 20px 10px;
-  padding: 30px;
+  padding: 30px 40px;
   border: 1px solid var(--cinza-claro);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* Cabeçalho */
 .container-header {
   background-color: var(--preto);
   display: flex;
@@ -44,31 +50,33 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
+/* Logo redondo */
 .logo-simulado {
-  width: 110px;
+  width: 90px;
   height: 90px;
   background-color: var(--preto);
   border: 2px solid var(--dourado);
   border-radius: 50%;
-  color: var(--dourado);
+  color: var(--branco);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 8px;
-  font-family: 'Arial Black', Arial, sans-serif;
+  user-select: none;
 }
 
+/* Menu */
 .menu {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
   justify-content: center;
+  flex-grow: 1;
+  margin: 0 40px;
 }
 
 .menu a {
@@ -76,80 +84,108 @@ body {
   background-color: transparent;
   font-weight: 600;
   text-decoration: none;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border: 1.5px solid var(--dourado);
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: background-color 0.25s ease, color 0.25s ease;
+  user-select: none;
 }
 
 .menu a:hover,
-.menu a.active {
+.menu a:focus {
   background-color: var(--dourado);
   color: var(--preto);
+  outline: none;
 }
 
+/* Barber Pole animado no cabeçalho */
 .barber-pole {
-  width: 14px;
+  width: 16px;
   height: 70px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: repeating-linear-gradient(
     45deg,
-    red 0 7px,
-    white 7px 14px,
-    blue 14px 21px
+    red 0 8px,
+    white 8px 16px,
+    blue 16px 24px
   );
-  animation: rotatePole 4s linear infinite;
-  margin-left: 15px;
+  box-shadow: 0 0 6px var(--dourado);
+  animation: spiral-background 3s linear infinite;
+  flex-shrink: 0;
 }
 
-@keyframes rotatePole {
-  from {
-    transform: rotate(0deg);
+@keyframes spiral-background {
+  0% {
+    background-position: 0 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 48px 48px;
   }
 }
 
+/* Seções */
 .section-padrao {
-  padding: 50px 25px;
+  padding: 50px 30px;
   margin-bottom: 70px;
   background-color: var(--branco);
   border-radius: 8px;
-  border: 1.5px solid var(--cinza-claro);
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  scroll-margin-top: 90px; /* for smooth scroll offset under sticky header */
+  border: 1px solid var(--cinza-claro);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  scroll-margin-top: 110px;
+  transition: background-color 0.3s ease;
+  position: relative;
 }
 
-.bg-inicio {
-  background-image: url(''); /* você coloca amanhã as imagens */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+/* Fundo leve para cada seção (exemplo, pode personalizar) */
+.section-padrao:nth-of-type(odd) {
+  background-color: #fff9e6;
 }
 
+/* Títulos */
 .titulo-secao {
   font-weight: 700;
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   color: var(--preto);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
   font-family: 'Arial Black', Arial, sans-serif;
-  text-shadow: 0 0 5px var(--dourado);
+  user-select: none;
+  transition: transform 0.3s ease;
 }
 
-.texto-inicio,
-.texto-sobre p,
-.texto-servicos p,
-.texto-equipe p,
-.texto-galeria p,
-.texto-contato p {
-  margin-bottom: 18px;
-  color: var(--preto);
-  line-height: 1.65;
+.titulo-secao.crescendo {
+  animation: crescer 0.8s forwards;
+}
+
+@keyframes crescer {
+  from {
+    transform: scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Sobre */
+.sobre-content {
+  display: flex;
+  gap: 40px;
+  max-width: 900px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: var(--cinza-escuro);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.texto-sobre {
+  flex: 1 1 520px;
   text-align: justify;
-  font-size: 1rem;
+  color: var(--preto);
 }
 
 .assinatura {
@@ -157,12 +193,12 @@ body {
   font-style: italic;
   font-weight: 600;
   color: var(--dourado);
-  margin-top: 25px;
+  margin-top: 20px;
+  user-select: none;
 }
 
-.foto-dono-quadro,
-.foto-equipe-quadro,
-.foto-galeria-quadro {
+/* Foto do dono */
+.foto-dono-quadro {
   width: 220px;
   height: 220px;
   border-radius: 50%;
@@ -170,116 +206,335 @@ body {
   background-color: var(--cinza-claro);
   background-size: cover;
   background-position: center;
-  margin: 0 auto;
-  display: block;
-  box-shadow: 0 0 12px var(--dourado);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  flex-shrink: 0;
 }
 
-/* Quadros estilo instagram na galeria */
-.galeria-container {
+/* Serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 22px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.servico-item button {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  border-radius: 35px;
+  border: 3px solid var(--dourado);
+  background-color: var(--branco);
+  color: var(--preto);
+  cursor: pointer;
+  box-shadow: 0 0 12px var(--dourado);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.servico-item button:hover,
+.servico-item button.selecionado {
+  background-color: var(--dourado);
+  color: var(--preto);
+  box-shadow: 0 0 30px var(--dourado);
+  transform: scale(1.1);
+}
+
+/* Soma total serviços selecionados */
+.soma-servicos {
+  margin-top: 60px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--amarelo-titulo);
+  text-align: center;
+  user-select: none;
+}
+
+/* Equipe */
+.equipe-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
   justify-content: center;
+  gap: 35px;
+  max-width: 1050px;
 }
 
-.foto-galeria-quadro {
+.membro {
+  background-color: var(--branco);
+  border: 4px solid var(--dourado);
+  border-radius: 20px;
+  width: 220px;
+  padding: 26px 18px 36px 18px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.membro-dono {
+  margin-top: 25px;
+  width: 220px;
+  align-self: center;
+}
+
+.membro-foto {
   width: 180px;
   height: 180px;
-  border-radius: 12px;
-  border: 2.5px solid var(--dourado);
+  border-radius: 50%;
   background-color: var(--preto);
-  box-shadow: 0 0 10px var(--dourado);
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--dourado);
+  margin-bottom: 18px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.membro h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--preto);
+  margin-bottom: 12px;
+}
+
+.comentario {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--cinza-escuro);
+  line-height: 1.4;
+}
+
+/* Galeria clientes estilo Instagram grid */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  max-width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.galeria-item {
+  width: 180px;
+  height: 180px;
+  background-color: var(--preto);
+  border: 4px solid var(--dourado);
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  user-select: none;
+  background-image: url('https://via.placeholder.com/180x180?text=Cliente');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Contato */
+#contato {
+  max-width: 900px;
+  text-align: center;
+}
+
+.endereco-contato {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 14px 0 6px 0;
+  color: var(--cinza-escuro);
+  user-select: text;
+}
+
+.link-maps {
+  color: var(--preto);
+  text-decoration: none;
+  border-bottom: 2px solid var(--dourado);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.link-maps:hover,
+.link-maps:focus {
+  color: var(--dourado);
+  border-color: var(--preto);
+  outline: none;
+}
+
+/* Ícones sociais no contato */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-icons a {
+  font-size: 3.8rem;
+  color: var(--preto);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  color: var(--dourado);
+  outline: none;
+}
+
+/* Rodapé */
+footer {
+  margin-top: 35px;
+  padding: 22px 0;
+  background-color: var(--preto);
+  color: var(--dourado);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  border-radius: 0 0 8px 8px;
+  user-select: none;
+  font-size: 1rem;
 }
 
 /* Horário de funcionamento */
 .horario-funcionamento {
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--cinza-escuro);
+  margin-top: 25px;
   text-align: center;
-  margin-top: 15px;
-  color: var(--dourado);
-}
-
-/* Links ícones contato */
-.contato-icones a {
-  color: var(--preto);
-  font-size: 1.7rem;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
-
-.contato-icones a:hover {
-  color: var(--dourado);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  font-size: 0.95rem;
-  color: var(--branco);
-  background-color: var(--preto);
-  padding: 22px;
-  border-radius: 8px;
-  margin-top: 40px;
+  user-select: none;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .page-wrapper {
+    margin: 20px 15px;
+    max-width: 100%;
+  }
+
   .container-header {
-    flex-direction: column;
-    align-items: center;
+    padding: 12px 18px;
   }
 
   .logo-simulado {
-    width: 90px;
-    height: 90px;
-    font-size: 1rem;
-    margin-bottom: 12px;
+    width: 80px;
+    height: 80px;
+    font-size: 0.8rem;
   }
 
   .menu {
-    justify-content: center;
-    flex-wrap: wrap;
+    margin: 0 15px;
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+    padding: 8px 14px;
   }
 
   .barber-pole {
-    margin-left: 0;
-    margin-top: 10px;
+    width: 14px;
+    height: 60px;
   }
 
-  .foto-dono-quadro,
-  .foto-equipe-quadro,
-  .foto-galeria-quadro {
+  .servico-item button {
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+
+  .equipe-grid {
+    gap: 25px;
+  }
+
+  .membro {
+    width: 190px;
+    padding: 22px 14px 30px 14px;
+  }
+
+  .membro-foto {
+    width: 160px;
+    height: 160px;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 18px;
+  }
+
+  .galeria-item {
     width: 150px;
     height: 150px;
   }
 
-  .section-padrao {
-    padding: 40px 15px;
-    margin-bottom: 60px;
+  .social-icons a {
+    font-size: 3rem;
   }
 }
 
-/* Animação suave na rolagem - Usado no JS */
-.section-padrao {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s ease;
-}
+@media (max-width: 750px) {
+  .page-wrapper {
+    margin: 15px 10px;
+  }
 
-.section-padrao.ativo {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .container-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
 
-/* Espaçamento extra entre seções */
-.page-wrapper > section + section {
-  margin-top: 90px;
-}
+  .logo-simulado {
+    width: 70px;
+    height: 70px;
+    font-size: 0.75rem;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .servicos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .equipe-grid {
+    gap: 15px;
+  }
+
+  .membro {
+    width: 150px;
+    padding: 18px 10px 22px 10px;
+  }
 
   .membro-foto {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+  }
+
+  .galeria-item {
+    width: 110px;
+    height: 110px;
+  }
+
+  .social-icons {
+    gap: 22px;
+  }
+
+  .social-icons a {
+    font-size: 2.4rem;
   }
 }

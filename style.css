@@ -21,7 +21,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 110px; /* Fix para header fixo */
+  padding-top: 90px !important; /* Header fixo ajustado */
 }
 
 .page-wrapper {
@@ -35,18 +35,18 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* ===== CABEÇALHO FIXO (ESTILO ORIGINAL) ===== */
+/* ===== CABEÇALHO FIXO CORRIGIDO ===== */
 .container-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 110px;
+  height: 90px;
   background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 20px;
   z-index: 1000;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
   border-bottom: 2px solid var(--dourado);
@@ -54,14 +54,14 @@ body {
 
 /* Logo */
 .logo-simulado {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   background-color: var(--preto);
   border: 2.5px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ body {
 /* Menu */
 .menu {
   display: flex;
-  gap: 22px;
+  gap: 15px;
   flex-grow: 1;
   justify-content: center;
   flex-wrap: wrap;
@@ -82,23 +82,25 @@ body {
   background-color: var(--dourado);
   font-weight: 700;
   text-decoration: none;
-  padding: 12px 28px;
+  padding: 10px 22px;
   border-radius: 40px;
   box-shadow: 0 0 8px var(--dourado);
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu a.active {
   background-color: var(--preto);
   color: var(--dourado);
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
-/* Barber Pole */
+/* Barber Pole ajustado */
 .barber-pole {
-  width: 20px;
-  height: 110px;
+  width: 16px;
+  height: 70px;
   border-radius: 20px;
   background: repeating-linear-gradient(
     45deg,
@@ -108,6 +110,8 @@ body {
   );
   box-shadow: 0 0 6px var(--dourado);
   animation: girar-barberpole 6s linear infinite;
+  position: absolute;
+  right: 15px;
 }
 
 @keyframes girar-barberpole {
@@ -115,21 +119,27 @@ body {
   to { background-position: 80px 80px; }
 }
 
-/* ===== SEÇÕES ===== */
-section {
-  scroll-margin-top: 110px; /* Ajuste para header fixo */
-}
-
-.section-padrao {
-  padding: 60px 30px 80px;
-  margin-bottom: 40px;
-  background-color: var(--branco);
+/* ===== TÍTULOS ANIMADOS ===== */
+.titulo-secao {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--preto);
+  margin-bottom: 35px;
+  text-align: center;
+  background-color: var(--dourado);
+  padding: 8px 0;
   border-radius: 8px;
-  border: 1px solid var(--cinza-claro);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 15px var(--dourado);
+  animation: pulsar-dourado 2s infinite alternate;
 }
 
-/* Sobre */
+@keyframes pulsar-dourado {
+  from { box-shadow: 0 0 10px var(--dourado); }
+  to { box-shadow: 0 0 25px var(--dourado); }
+}
+
+/* ===== SEÇÃO SOBRE ===== */
 .sobre-content {
   display: flex;
   gap: 40px;
@@ -165,9 +175,10 @@ section {
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 15px var(--dourado);
+  flex-shrink: 0;
 }
 
-/* Serviços */
+/* ===== SERVIÇOS ===== */
 .servicos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -190,13 +201,24 @@ section {
   transition: all 0.3s ease;
 }
 
-.servico-item button:hover {
+.servico-item button:hover,
+.servico-item button.selecionado {
   background-color: var(--preto);
   color: var(--dourado);
+  box-shadow: 0 0 35px var(--dourado);
   transform: scale(1.1);
 }
 
-/* Equipe */
+.soma-servicos {
+  margin-top: 55px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--amarelo-titulo);
+  text-align: center;
+  text-shadow: 0 0 10px var(--dourado);
+}
+
+/* ===== EQUIPE ===== */
 .equipe-grid {
   display: flex;
   flex-wrap: wrap;
@@ -206,36 +228,118 @@ section {
   margin: 0 auto;
 }
 
-/* ... (continue com o restante do seu CSS original) ... */
+.membro {
+  background-color: var(--branco);
+  border: 4px solid var(--dourado);
+  border-radius: 20px;
+  width: 220px;
+  padding: 26px 18px 36px;
+  box-shadow: 0 0 18px var(--dourado);
+  text-align: center;
+}
+
+.membro-foto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: var(--preto);
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--dourado);
+  margin-bottom: 18px;
+  box-shadow: 0 0 15px var(--dourado);
+}
+
+/* ===== GALERIA ===== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  padding: 0 10px;
+}
+
+.galeria-item {
+  width: 140px;
+  height: 140px;
+  background-color: var(--preto);
+  border: 4px solid var(--dourado);
+  border-radius: 12px;
+  box-shadow: 0 0 20px var(--dourado);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.05);
+}
+
+/* ===== CONTATO ===== */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-icons a {
+  font-size: 3.6rem;
+  color: var(--preto);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--dourado);
+}
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .container-header {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 12px 10px !important;
     height: auto;
-    padding: 15px 10px !important;
   }
-  
+
   body {
-    padding-top: 180px !important;
+    padding-top: 160px !important;
   }
-  
+
   .menu {
     order: 3;
     width: 100%;
-    margin-top: 15px;
+    justify-content: center;
   }
-  
+
   .barber-pole {
-    margin-top: 15px;
-    height: 70px;
+    position: relative;
+    right: auto;
+    margin-top: 10px;
+    height: 60px;
   }
-  
+
   .sobre-content {
     flex-direction: column;
   }
-  
+
   .foto-dono-quadro {
     margin: 30px auto 0 !important;
   }
+}
+
+@media (max-width: 480px) {
+  .logo-simulado {
+    width: 70px;
+    height: 70px;
   }
+
+  .menu a {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+        }

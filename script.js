@@ -1,41 +1,54 @@
 // script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const botoesServicos = document.querySelectorAll('.servico-item button');
+  const totalSpan = document.getElementById('total');
+  let totalSelecionado = 0;
+  const precos = {
+    'Corte - R$ 40': 40,
+    'Cabelo e Barba - R$ 65': 65,
+    'Barba - R$ 25': 25,
+    'Sobrancelha - R$ 10': 10,
+    'Alisamento - R$ 25': 25,
+    'Cabelo Afro - R$ 30': 30,
+    'Luzes - R$ 45 a R$ 60': 45,
+    'Pezinho - R$ 10': 10
+  };
 
-document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll(".menu a");
-  const secoes = document.querySelectorAll(".section-padrao");
+  let servicosSelecionados = new Set();
 
-  // Mostrar somente a primeira seção ao carregar
-  secoes.forEach(secao => secao.style.display = "none");
-  document.querySelector("#inicio").style.display = "block";
+  botoesServicos.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const texto = botao.textContent.trim();
+      if (servicosSelecionados.has(texto)) {
+        servicosSelecionados.delete(texto);
+        botao.classList.remove('selecionado');
+      } else {
+        servicosSelecionados.add(texto);
+        botao.classList.add('selecionado');
+      }
 
-  links.forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const alvo = this.getAttribute("href").substring(1);
-
-      secoes.forEach(secao => {
-        if (secao.id === alvo) {
-          secao.style.display = "block";
-          secao.scrollIntoView({ behavior: "smooth" });
-        } else {
-          secao.style.display = "none";
-        }
+      totalSelecionado = 0;
+      servicosSelecionados.forEach(item => {
+        totalSelecionado += precos[item] || 0;
       });
+
+      totalSpan.textContent = totalSelecionado.toFixed(2).replace('.', ',');
     });
   });
 
-  // Soma de serviços
-  const botoesServico = document.querySelectorAll(".servico-item button");
-  const resultado = document.querySelector("#total-servicos");
-  let total = 0;
-
-  botoesServico.forEach(botao => {
-    botao.addEventListener("click", function () {
-      const preco = parseFloat(this.dataset.preco);
-      total += preco;
-      resultado.textContent = `Total: R$ ${total.toFixed(2)}`;
+  // Título animado ao entrar na viewport
+  const titulos = document.querySelectorAll('.titulo-secao');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
     });
-  });
+  }, { threshold: 0.6 });
+
+  titulos.forEach(titulo => observer.observe(titulo));
 });
 
 

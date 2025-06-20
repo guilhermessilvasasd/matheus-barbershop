@@ -21,57 +21,44 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 90px !important; /* Header fixo ajustado */
+  padding-top: 100px !important;
 }
 
-.page-wrapper {
-  max-width: 1140px;
-  width: 100%;
-  background-color: var(--branco);
-  margin: 0 auto;
-  padding: 30px 30px 50px;
-  border-radius: 8px;
-  border: 1px solid var(--cinza-claro);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* ===== CABEÇALHO FIXO CORRIGIDO ===== */
+/* ===== CABEÇALHO FIXO ===== */
 .container-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: 100px;
   background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 25px;
   z-index: 1000;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-  border-bottom: 2px solid var(--dourado);
+  border-bottom: 3px solid var(--dourado);
 }
 
-/* Logo */
 .logo-simulado {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   background-color: var(--preto);
   border: 2.5px solid var(--dourado);
   border-radius: 50%;
   color: var(--branco);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 8px var(--dourado);
 }
 
-/* Menu */
 .menu {
   display: flex;
-  gap: 15px;
+  gap: 18px;
   flex-grow: 1;
   justify-content: center;
   flex-wrap: wrap;
@@ -82,12 +69,11 @@ body {
   background-color: var(--dourado);
   font-weight: 700;
   text-decoration: none;
-  padding: 10px 22px;
+  padding: 11px 25px;
   border-radius: 40px;
   box-shadow: 0 0 8px var(--dourado);
-  font-size: 1rem;
+  font-size: 1.05rem;
   transition: all 0.25s ease;
-  white-space: nowrap;
 }
 
 .menu a:hover,
@@ -97,10 +83,9 @@ body {
   transform: scale(1.1);
 }
 
-/* Barber Pole ajustado */
 .barber-pole {
   width: 16px;
-  height: 70px;
+  height: 80px;
   border-radius: 20px;
   background: repeating-linear-gradient(
     45deg,
@@ -111,7 +96,7 @@ body {
   box-shadow: 0 0 6px var(--dourado);
   animation: girar-barberpole 6s linear infinite;
   position: absolute;
-  right: 15px;
+  right: 20px;
 }
 
 @keyframes girar-barberpole {
@@ -119,27 +104,55 @@ body {
   to { background-position: 80px 80px; }
 }
 
-/* ===== TÍTULOS ANIMADOS ===== */
+/* ===== SEÇÕES ===== */
+section {
+  scroll-margin-top: 100px;
+}
+
+.section-padrao {
+  padding: 50px 30px 70px;
+  margin-bottom: 70px !important;
+  background-color: var(--branco);
+  border-radius: 8px;
+  border: 1px solid var(--cinza-claro);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+/* ===== TÍTULOS ANIMADOS (CORREÇÃO PARA MOBILE) ===== */
 .titulo-secao {
   font-family: 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: var(--preto);
-  margin-bottom: 35px;
+  margin-bottom: 50px !important;
   text-align: center;
   background-color: var(--dourado);
-  padding: 8px 0;
+  padding: 10px 0;
   border-radius: 8px;
-  box-shadow: 0 0 15px var(--dourado);
+  -webkit-animation: pulsar-dourado 2s infinite alternate; /* Prefixo para mobile */
   animation: pulsar-dourado 2s infinite alternate;
+  transform: translateZ(0); /* Otimização para mobile */
+  backface-visibility: hidden; /* Evita flickering */
 }
 
 @keyframes pulsar-dourado {
-  from { box-shadow: 0 0 10px var(--dourado); }
-  to { box-shadow: 0 0 25px var(--dourado); }
+  0% {
+    box-shadow: 0 0 10px var(--dourado);
+    transform: scale(1) translateZ(0);
+  }
+  100% {
+    box-shadow: 0 0 25px var(--dourado);
+    transform: scale(1.02) translateZ(0); /* Efeito sutil de zoom */
+  }
 }
 
-/* ===== SEÇÃO SOBRE ===== */
+@media (prefers-reduced-motion: reduce) {
+  .titulo-secao {
+    animation: none !important;
+  }
+}
+
+/* ===== SOBRE ===== */
 .sobre-content {
   display: flex;
   gap: 40px;
@@ -155,11 +168,11 @@ body {
 }
 
 .texto-sobre p {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .assinatura {
-  margin-top: 25px;
+  margin-top: 30px;
   font-style: italic;
   font-weight: 700;
   text-align: right;
@@ -257,8 +270,7 @@ body {
   gap: 20px;
   max-width: 100%;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 60px;
+  margin: 30px 0 70px;
   padding: 0 10px;
 }
 
@@ -280,7 +292,7 @@ body {
 
 /* ===== CONTATO ===== */
 .social-icons {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -299,28 +311,31 @@ body {
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .container-header {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    height: auto !important;
+    padding: 15px 10px !important;
     gap: 15px;
-    padding: 12px 10px !important;
-    height: auto;
   }
 
   body {
-    padding-top: 160px !important;
+    padding-top: 180px !important;
   }
 
   .menu {
     order: 3;
     width: 100%;
-    justify-content: center;
+    margin-top: 15px;
   }
 
   .barber-pole {
     position: relative;
     right: auto;
     margin-top: 10px;
-    height: 60px;
+    height: 70px;
+  }
+
+  .section-padrao {
+    margin-bottom: 50px !important;
   }
 
   .sobre-content {
@@ -333,13 +348,22 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 160px !important;
+  }
+
   .logo-simulado {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
   }
 
   .menu a {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 9px 18px;
+    font-size: 0.95rem;
   }
-        }
+
+  .titulo-secao {
+    font-size: 2.2rem;
+    margin-bottom: 40px !important;
+  }
+  }

@@ -16,21 +16,20 @@
   --amarelo-titulo: #ffcc00;
 }
 
-/* Body e Wrapper */
+/* Body e Wrapper - MODIFICADO */
 body {
   background-color: var(--preto);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  display: block;
   overflow-x: hidden;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .page-wrapper {
   max-width: 1140px;
   width: 100%;
   background-color: var(--branco);
-  margin: 10px 15px;
+  margin: 120px auto 10px;
   padding: 30px 30px 50px 30px;
   border-radius: 8px;
   border: 1px solid var(--cinza-claro);
@@ -38,19 +37,21 @@ body {
   position: relative;
 }
 
-/* Cabeçalho fixo no topo */
+/* Cabeçalho fixo no topo - MODIFICADO */
 .container-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100vw;
   z-index: 10000;
   background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 30px;
-  border-radius: 8px 8px 0 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-  margin-bottom: 40px;
+  border-radius: 0;
+  margin-bottom: 0;
 }
 
 /* Logo arredondado */
@@ -402,13 +403,12 @@ footer {
 
 @media (max-width: 1200px) {
   .page-wrapper {
-    margin: 15px 12px;
+    margin: 120px 12px 15px;
     max-width: 100%;
     padding: 28px 24px 48px 24px;
   }
   .container-header {
     padding: 12px 20px;
-    margin-bottom: 32px;
   }
   .logo-simulado {
     width: 80px;
@@ -465,6 +465,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     gap: 18px;
+    padding: 12px 0;
   }
   .logo-simulado {
     width: 70px;
@@ -474,10 +475,13 @@ footer {
   .menu {
     justify-content: center;
     gap: 20px;
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
   }
-  .menu a {
-    font-size: 0.9rem;
-    padding: 8px 18px;
+  .barber-pole {
+    margin-left: 0;
+    height: 70px;
   }
   .servicos-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -512,6 +516,9 @@ footer {
   .social-icons a {
     font-size: 2.4rem;
   }
+  .page-wrapper {
+    margin-top: 180px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -527,4 +534,11 @@ footer {
     font-size: 0.85rem;
     padding: 8px 14px;
   }
-}
+  .barber-pole {
+    height: 60px;
+  }
+  .page-wrapper {
+    margin-top: 180px;
+    padding: 15px;
+  }
+  }
